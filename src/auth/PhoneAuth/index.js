@@ -11,9 +11,11 @@ import {
 } from "../../validation/registerSchema";
 import Input from "../../components/Input";
 import styles from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
-const PhoneAuthScreen = ({ navigation }) => {
+const PhoneAuthScreen = () => {
   const phoneRef = useRef(undefined);
+  const navigation = useNavigation();
 
   return (
     <SafeAreaView>
@@ -25,7 +27,10 @@ const PhoneAuthScreen = ({ navigation }) => {
           initialValues={initialValuesAuth}
           validationSchema={registerAuthValidationSchema}
           validateOnBlur={false}
-          onSubmit={(values) => console.log(values)}
+          validateOnMount={true}
+          onSubmit={(values) =>
+            navigation.navigate("Login", { phoneNumber: values.phoneNumber })
+          }
         >
           {({
             handleChange,
@@ -58,7 +63,6 @@ const PhoneAuthScreen = ({ navigation }) => {
               <Button
                 isDisabled={!isValid}
                 onPress={handleSubmit}
-                customStyle={styles.button}
                 textCustomStyle={styles.buttonText}
                 text="Kaydol"
               />
