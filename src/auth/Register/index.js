@@ -14,10 +14,12 @@ import {
 } from "../../validation/registerSchema";
 import Input from "../../components/Input";
 import { TextInput } from "react-native-paper";
+import { useNavigation } from "@react-navigation/native";
 
-const RegisterScreen = ({ navigation }) => {
+const RegisterScreen = () => {
   const [visible, setVisible] = useState(true);
   const phoneRef = useRef(undefined);
+  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,99 +27,111 @@ const RegisterScreen = ({ navigation }) => {
         <View style={styles.logoView}>
           <LogoSvg />
         </View>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={registerValidationSchema}
-          validateOnBlur={true}
-          onSubmit={(values) => console.log(values)}
-        >
-          {({
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            values,
-            isValid,
-            errors,
-            touched,
-          }) => (
-            <View>
-              <View style={styles.inputView}>
-                <Input
-                  style={styles.input}
-                  onChangeText={handleChange("name")}
-                  onBlur={handleBlur("name")}
-                  value={values.name}
-                  error={errors.name}
-                  touched={touched.name}
-                  label="İsim"
-                />
-              </View>
-
-              <View style={styles.inputView}>
-                <Input
-                  style={styles.input}
-                  onChangeText={handleChange("surname")}
-                  onBlur={handleBlur("surname")}
-                  value={values.surname}
-                  error={errors.surname}
-                  touched={touched.surname}
-                  label="Soyisim"
-                />
-              </View>
-              <View style={styles.inputView}>
-                <Input
-                  style={styles.input}
-                  onChangeText={handleChange("email")}
-                  onBlur={handleBlur("email")}
-                  value={values.email}
-                  touched={touched.email}
-                  placeholder="E-posta"
-                  error={errors.email}
-                  label="E-posta"
-                />
-              </View>
-              <View style={styles.passwordInput}>
-                <Input
-                  style={styles.input}
-                  label="Şifre"
-                  onChangeText={handleChange("password")}
-                  onBlur={handleBlur("password")}
-                  value={values.password}
-                  secureTextEntry={visible}
-                  error={errors.password}
-                  touched={touched.password}
-                />
-
-                <TouchableOpacity
-                  style={styles.inputIcon}
-                  onPress={() => setVisible(!visible)}
-                >
-                  <Entypo
-                    name={visible ? "eye" : "eye-with-line"}
-                    size={18}
-                    color="grey"
+        <View style={{ marginBottom: 100 }}>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={registerValidationSchema}
+            validateOnBlur={true}
+            validateOnMount={true}
+            onSubmit={(values) =>
+              navigation.navigate("PhoneAuth", {
+                name: values.name,
+                surname: values.surname,
+                email: values.email,
+                password: values.password,
+              })
+            }
+          >
+            {({
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              values,
+              isValid,
+              errors,
+              touched,
+            }) => (
+              <View>
+                <View style={styles.inputView}>
+                  <Input
+                    style={styles.input}
+                    onChangeText={handleChange("name")}
+                    onBlur={handleBlur("name")}
+                    value={values.name}
+                    error={errors.name}
+                    touched={touched.name}
+                    label="İsim"
                   />
-                </TouchableOpacity>
-              </View>
+                </View>
 
-              <Button
-                isDisabled={!isValid}
-                onPress={handleSubmit}
-                customStyle={styles.button}
-                textCustomStyle={styles.buttonText}
-                text="İleri"
-              />
-              <View style={styles.loginText}>
-                <Text style={styles.textLogin}>
-                  Zaten bir hesabınız var mı?{" "}
-                </Text>
-                <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-                  <Text style={styles.loginTextButton}>Giriş Yap</Text>
-                </TouchableOpacity>
+                <View style={styles.inputView}>
+                  <Input
+                    style={styles.input}
+                    onChangeText={handleChange("surname")}
+                    onBlur={handleBlur("surname")}
+                    value={values.surname}
+                    error={errors.surname}
+                    touched={touched.surname}
+                    label="Soyisim"
+                  />
+                </View>
+                <View style={styles.inputView}>
+                  <Input
+                    style={styles.input}
+                    onChangeText={handleChange("email")}
+                    onBlur={handleBlur("email")}
+                    value={values.email}
+                    touched={touched.email}
+                    placeholder="E-posta"
+                    error={errors.email}
+                    label="E-posta"
+                  />
+                </View>
+                <View style={styles.passwordInput}>
+                  <Input
+                    style={styles.input}
+                    label="Şifre"
+                    onChangeText={handleChange("password")}
+                    onBlur={handleBlur("password")}
+                    value={values.password}
+                    secureTextEntry={visible}
+                    error={errors.password}
+                    touched={touched.password}
+                  />
+
+                  <TouchableOpacity
+                    style={styles.inputIcon}
+                    onPress={() => setVisible(!visible)}
+                  >
+                    <Entypo
+                      name={visible ? "eye" : "eye-with-line"}
+                      size={18}
+                      color="grey"
+                    />
+                  </TouchableOpacity>
+                </View>
+
+                <Button
+                  isDisabled={!isValid}
+                  onPress={handleSubmit}
+                  customStyle={styles.button}
+                  textCustomStyle={styles.buttonText}
+                  text="İleri"
+                />
+                <View style={styles.loginText}>
+                  <Text style={styles.textLogin}>
+                    Zaten bir hesabınız var mı?{" "}
+                  </Text>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("Login")}
+                  >
+                    <Text style={styles.loginTextButton}>Giriş Yap</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-            </View>
-          )}
-        </Formik>
+            )}
+          </Formik>
+        </View>
       </View>
     </SafeAreaView>
   );
