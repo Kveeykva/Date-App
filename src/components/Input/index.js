@@ -30,12 +30,15 @@ const Input = (props) => {
         value={value}
         placeholder={placeholder}
         secureTextEntry={secureTextEntry}
-        mode="outlined"
         right={right}
-        outlineStyle={{
-          borderColor: colors.black,
-          borderRadius: 10,
-          shadowColor: colors.black,
+        selectTextOnFocus={true}
+        underlineStyle={{
+          backgroundColor: null,
+        }}
+        theme={{
+          colors: {
+            primary: colors.black,
+          },
         }}
       />
       <View>

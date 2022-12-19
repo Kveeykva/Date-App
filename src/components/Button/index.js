@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styles from "./styles";
 
@@ -7,7 +7,7 @@ const Button = (props) => {
   const { text, customStyle, textCustomStyle, onPress, isDisabled } = props;
   return (
     <SafeAreaView>
-      <Pressable
+      <TouchableOpacity
         onPress={onPress}
         style={
           isDisabled
@@ -16,7 +16,7 @@ const Button = (props) => {
         }
       >
         <Text style={[styles.buttonText, textCustomStyle]}> {text} </Text>
-      </Pressable>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };

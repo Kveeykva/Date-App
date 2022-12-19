@@ -9,6 +9,10 @@ const styles = StyleSheet.create({
     width: "80%",
     alignSelf: "center",
     height: 50,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
   },
   inputError: {
     borderWidth: 2,
