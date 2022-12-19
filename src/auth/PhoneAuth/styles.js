@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
 
   errorText: {
-    color: colors.red,
+    color: colors.white,
     width: "80%",
     alignSelf: "center",
     fontSize: 12,

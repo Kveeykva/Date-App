@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: 1,
     justifyContent: "flex-end",
+    marginBottom: 60,
   },
   whiteLoginButton: {
     backgroundColor: colors.white,
