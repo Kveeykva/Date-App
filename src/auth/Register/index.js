@@ -4,8 +4,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Formik } from "formik";
 import styles from "./styles";
 import { Entypo } from "@expo/vector-icons";
-import PhoneInput from "react-native-phone-input";
-import CountryPicker from "react-native-country-picker-modal";
 import LogoSvg from "../../components/Logo";
 import Button from "../../components/Button";
 import {
@@ -13,7 +11,6 @@ import {
   initialValues,
 } from "../../validation/registerSchema";
 import Input from "../../components/Input";
-import { TextInput } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 
 const RegisterScreen = () => {
@@ -35,8 +32,6 @@ const RegisterScreen = () => {
             validateOnMount={true}
             onSubmit={(values) =>
               navigation.navigate("PhoneAuth", {
-                name: values.name,
-                surname: values.surname,
                 email: values.email,
                 password: values.password,
               })
@@ -52,29 +47,6 @@ const RegisterScreen = () => {
               touched,
             }) => (
               <View>
-                <View style={styles.inputView}>
-                  <Input
-                    style={styles.input}
-                    onChangeText={handleChange("name")}
-                    onBlur={handleBlur("name")}
-                    value={values.name}
-                    error={errors.name}
-                    touched={touched.name}
-                    label="İsim"
-                  />
-                </View>
-
-                <View style={styles.inputView}>
-                  <Input
-                    style={styles.input}
-                    onChangeText={handleChange("surname")}
-                    onBlur={handleBlur("surname")}
-                    value={values.surname}
-                    error={errors.surname}
-                    touched={touched.surname}
-                    label="Soyisim"
-                  />
-                </View>
                 <View style={styles.inputView}>
                   <Input
                     style={styles.input}

@@ -7,8 +7,7 @@ export const registerValidationSchema = yup.object().shape({
     .max(20, ({ max }) => `Şifreniz en fazla ${max} karakter olmalıdır.`)
     .required("Şifre Gerekli")
     .matches(/(?=.*[0-9])/, "Şifreniz en az bir rakam içermelidir."),
-  name: yup.string().required("Ad Gerekli"),
-  surname: yup.string().required("Soyad Gerekli"),
+
   email: yup
     .string()
     .email("Geçerli bir e-posta adresi giriniz.")
@@ -16,10 +15,8 @@ export const registerValidationSchema = yup.object().shape({
 });
 
 export const initialValues = {
-  name: "",
-  surname: "",
-  password: "",
   email: "",
+  password: "",
 };
 
 export const registerAuthValidationSchema = yup.object().shape({
@@ -31,4 +28,21 @@ export const registerAuthValidationSchema = yup.object().shape({
 
 export const initialValuesAuth = {
   phoneNumber: "",
+};
+
+export const registerValidNameSchema = yup.object().shape({
+  name: yup
+    .string()
+    .required("Ad Gerekli")
+
+    .matches(/^[a-zA-Z]+$/, "Adınız sadece harflerden oluşmalıdır."),
+  surname: yup
+    .string()
+    .required("Soyad Gerekli")
+    .matches(/^[a-zA-Z]+$/, "Soyadınız sadece harflerden oluşmalıdır."),
+});
+
+export const initialValuesName = {
+  name: "",
+  surname: "",
 };

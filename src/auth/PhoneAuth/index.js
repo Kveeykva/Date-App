@@ -29,7 +29,9 @@ const PhoneAuthScreen = () => {
           validateOnBlur={false}
           validateOnMount={true}
           onSubmit={(values) =>
-            navigation.navigate("Login", { phoneNumber: values.phoneNumber })
+            navigation.navigate("NameSurname", {
+              phoneNumber: values.phoneNumber,
+            })
           }
         >
           {({
@@ -63,6 +65,7 @@ const PhoneAuthScreen = () => {
               <Button
                 isDisabled={!isValid}
                 onPress={handleSubmit}
+                customStyle={styles.button}
                 textCustomStyle={styles.buttonText}
                 text="Kaydol"
               />
