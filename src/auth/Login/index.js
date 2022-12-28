@@ -4,8 +4,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Formik } from "formik";
 import styles from "./styles";
 import { Entypo } from "@expo/vector-icons";
-import PhoneInput from "react-native-phone-input";
-import CountryPicker from "react-native-country-picker-modal";
 import LogoSvg from "../../components/Logo";
 import Button from "../../components/Button";
 import {
@@ -13,7 +11,6 @@ import {
   initialValues,
 } from "../../validation/loginSchema";
 import Input from "../../components/Input";
-import { TextInput } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 
 const RegisterScreen = () => {

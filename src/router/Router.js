@@ -14,7 +14,6 @@ import ProfileScreen from "../pages/Profile";
 import SettingsScreen from "../pages/Settings";
 import { Ionicons } from "@expo/vector-icons";
 import colors from "../colors";
-import { TouchableOpacity } from "react-native-gesture-handler";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -65,7 +64,7 @@ function HomeTabs() {
         headerShown: false,
         tabBarShowLabel: false,
       })}
-      initialRouteName="Home"
+      initialRouteName="HomeTab"
     >
       <Tab.Screen name="Matches" component={MatchScreen} />
       <Tab.Screen name="Message" component={MessageScreen} />

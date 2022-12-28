@@ -1,11 +1,13 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, { useState } from "react";
+import { View } from "react-native";
+import BottomSheet from "../../components/BottomSheet";
 
-const MatchScreen = (props) => {
+function MatchScreen() {
   return (
-    <View>
-      <Text> Matches </Text>
+    <View style={{ flex: 1 }}>
+      <BottomSheet />
     </View>
   );
-};
+}
+
 export default MatchScreen;
