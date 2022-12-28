@@ -1,0 +1,44 @@
+{
+  "carousel": [
+    {
+      "id": 0,
+      "name": "İsim 1",
+      "location": "Denizli",
+      "distance": "0.2 KM",
+      "age": "21",
+      "photo": "https://i.imgur.com/Z3UcY9t.jpeg"
+    },
+    {
+      "id": 1,
+      "name": "İsim 2",
+      "location": "İstanbul",
+      "distance": "0.2 KM",
+      "age": "22",
+      "photo": "https://i.imgur.com/viK6HkX.png"
+    },
+    {
+      "id": 2,
+      "name": "İsim 3",
+      "location": "Ankara",
+      "distance": "0.2 KM",
+      "age": "23",
+      "photo": "https://i.imgur.com/7FZ5rYs.jpeg"
+    },
+    {
+      "id": 3,
+      "name": "İsim 4",
+      "location": "Antalya",
+      "distance": "0.2 KM",
+      "age": "24",
+      "photo": "https://i.imgur.com/e5WxfrR.jpeg"
+    },
+    {
+      "id": 4,
+      "name": "İsim 5",
+      "location": "İzmir",
+      "distance": "0.2 KM",
+      "age": "25",
+      "photo": "https://i.imgur.com/bGWSp0I.png"
+    }
+  ]
+}
