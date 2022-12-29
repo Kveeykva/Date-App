@@ -8,21 +8,15 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   container: {
-    backgroundColor: colors.white,
     marginHorizontal: 10,
   },
+
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
   },
-  carouselContainer: {
-    width: width,
-    height: height,
-    justifyContent: "center",
-    alignItems: "center",
-    resizeMode: "cover",
-  },
+
   photo: {
     width: width * 0.8,
     height: height * 0.7,

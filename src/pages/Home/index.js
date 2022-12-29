@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Text, View, Image, FlatList, TouchableOpacity } from "react-native";
+import React, { useEffect, useCallback, useMemo, useRef } from "react";
+import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
   fetchCarousel,
@@ -9,7 +9,13 @@ import { useSelector, useDispatch } from "react-redux";
 import styles from "./styles";
 import Discover from "../../components/Discover";
 import Search from "../../components/Search";
-import BottomSheet from "../../components/BottomSheet";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import {
+  BottomSheetModal,
+  BottomSheetModalProvider,
+  BottomSheetBackdrop,
+} from "@gorhom/bottom-sheet";
+import BottomSheetContent from "../../components/BottomSheet/bottomSheetContent";
 
 const HomeScreen = (props) => {
   const dispatch = useDispatch();
@@ -18,31 +24,57 @@ const HomeScreen = (props) => {
   useEffect(() => {
     dispatch(fetchCarousel());
   }, []);
+  const bottomSheetModalRef = useRef(null);
+
+  const snapPoints = useMemo(() => ["25%", "50%", "75"], []);
+
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.present();
+  }, []);
+
+  const renderBackdrop = useCallback(
+    (props) => (
+      <BottomSheetBackdrop
+        {...props}
+        disappearsOnIndex={-1}
+        appearsOnIndex={2}
+      />
+    ),
+    []
+  );
 
   return (
-    <SafeAreaView style={styles.page}>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Discover />
-          <Search />
-        </View>
-        <FlatList
-          data={carousel.carousel}
-          horizontal
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <TouchableOpacity style={styles.carouselContainer}>
-              <Image source={{ uri: item.photo }} style={styles.photo} />
-              <View style={{ flexDirection: "row" }}>
-                <Text style={styles.name}>{item.name}</Text>
-                <Text style={styles.age}>{item.age}</Text>
-                <Text style={styles.location}>{item.location}</Text>
+    <GestureHandlerRootView style={styles.page}>
+      <BottomSheetModalProvider>
+        <SafeAreaView>
+          <View style={styles.container}>
+            <View style={styles.header}>
+              <Discover />
+              <Search onPress={handlePresentModalPress} />
+            </View>
+
+            <BottomSheetModal
+              ref={bottomSheetModalRef}
+              index={1}
+              snapPoints={snapPoints}
+              enablePanDownToClose={true}
+              enableDismissOnClose={true}
+              dismissOnPanDown={true}
+              backdropComponent={renderBackdrop}
+            >
+              <View style={styles.contentContainer}>
+                <BottomSheetContent
+                  title="Search"
+                  location="Location"
+                  distance="Distance"
+                  age="Age"
+                />
               </View>
-            </TouchableOpacity>
-          )}
-        />
-      </View>
-    </SafeAreaView>
+            </BottomSheetModal>
+          </View>
+        </SafeAreaView>
+      </BottomSheetModalProvider>
+    </GestureHandlerRootView>
   );
 };
 export default HomeScreen;
