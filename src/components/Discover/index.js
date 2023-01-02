@@ -6,17 +6,15 @@ import styles from "./styles";
 
 const Discover = (props) => {
   return (
-    <SafeAreaView>
-      <View style={styles.container}>
-        <Pressable>
-          <Text style={styles.discoverText}>DISCOVER</Text>
-          <View style={styles.locationContainer}>
-            <FontAwesome name="map-marker" style={styles.Icon} />
-            <Text style={styles.cityText}>Deneme, Şehir</Text>
-          </View>
-        </Pressable>
-      </View>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <Pressable>
+        <Text style={styles.discoverText}>DISCOVER</Text>
+        <View style={styles.locationContainer}>
+          <FontAwesome name="map-marker" style={styles.Icon} />
+          <Text style={styles.cityText}>Deneme, Şehir</Text>
+        </View>
+      </Pressable>
+    </View>
   );
 };
 export default Discover;

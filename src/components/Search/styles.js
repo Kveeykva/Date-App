@@ -12,6 +12,14 @@ const styles = StyleSheet.create({
     height: width,
     width: width,
   },
+  searchContainer: {
+    width: 35,
+    height: 35,
+    borderRadius: 5,
+    backgroundColor: "#f2e6e8",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
 
 export default styles;

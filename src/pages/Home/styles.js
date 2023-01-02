@@ -4,8 +4,8 @@ import colors from "../../colors";
 
 const styles = StyleSheet.create({
   page: {
-    flex: 1,
     backgroundColor: colors.white,
+    flex: 1,
   },
   container: {
     marginHorizontal: 10,
@@ -17,24 +17,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  photo: {
-    width: width * 0.8,
-    height: height * 0.7,
+  carouselPhoto: {
+    width: width * 0.85,
+    height: height * 0.6,
+    backgroundColor: colors.lightGrey,
     borderRadius: 20,
   },
-
-  name: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 5,
-  },
-  age: {
-    fontSize: 18,
-    color: "red",
-  },
-  location: {
-    fontSize: 16,
-    color: "red",
+  carousel: {
+    bottom: 0,
   },
 });
 

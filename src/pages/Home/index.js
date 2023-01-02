@@ -1,6 +1,5 @@
 import React, { useEffect, useCallback, useMemo, useRef } from "react";
-import { View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { FlatList, Text, View, Image, TouchableOpacity } from "react-native";
 import {
   fetchCarousel,
   selectCarousel,
@@ -16,6 +15,8 @@ import {
   BottomSheetBackdrop,
 } from "@gorhom/bottom-sheet";
 import BottomSheetContent from "../../components/BottomSheet/bottomSheetContent";
+import CarouselPhoto from "../../components/Card";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const HomeScreen = (props) => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const HomeScreen = (props) => {
   }, []);
   const bottomSheetModalRef = useRef(null);
 
-  const snapPoints = useMemo(() => ["25%", "50%", "75"], []);
+  const snapPoints = useMemo(() => ["50%", "80%", "85%"], []);
 
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
@@ -52,6 +53,9 @@ const HomeScreen = (props) => {
               <Discover />
               <Search onPress={handlePresentModalPress} />
             </View>
+            <View style={styles.carousel}>
+              <CarouselPhoto customStyle={styles.carouselPhoto} />
+            </View>
 
             <BottomSheetModal
               ref={bottomSheetModalRef}
@@ -64,10 +68,10 @@ const HomeScreen = (props) => {
             >
               <View style={styles.contentContainer}>
                 <BottomSheetContent
-                  title="Search"
-                  location="Location"
-                  distance="Distance"
-                  age="Age"
+                  title="Arama"
+                  location="Konum"
+                  distance="Mesafe"
+                  age="Yaş"
                 />
               </View>
             </BottomSheetModal>
