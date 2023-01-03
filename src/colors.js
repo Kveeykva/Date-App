@@ -9,15 +9,17 @@ const colors = {
   red: "#ff0000",
   grey: "#808080",
   lightGrey: "#d3d3d3",
-  darkGrey: "#a9a9a9",
+  darkGrey: "#686B73",
   lightBlue: "#add8e6",
   darkBlue: "#0000ff",
   lightGreen: "#90ee90",
   darkGreen: "#006400",
   lightYellow: "#ffffe0",
-  darkYellow: "#ffff00",
+  darkYellow: "#EFB706",
   yellow: "#ffeb3b",
   orange: "#FE8615",
+  turquoise: "rgb(0, 206, 200)",
+  gold: "rgb(212,175,55)",
 };
 
 export default colors;
