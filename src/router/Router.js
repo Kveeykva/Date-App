@@ -12,8 +12,10 @@ import MatchScreen from "../pages/Matches";
 import MessageScreen from "../pages/Messages";
 import ProfileScreen from "../pages/Profile";
 import SettingsScreen from "../pages/Settings";
+import EditProfile from "../components/Modal/editProfile";
 import { Ionicons } from "@expo/vector-icons";
 import colors from "../colors";
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -21,19 +23,76 @@ const Router = (props) => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        screenOptions={{ headerShown: false }}
         initialRouteName="Home"
+        screenOptions={{ headerShown: false }}
       >
-        <Stack.Screen name="Home" component={HomeTabs} />
-        <Stack.Screen name="Register" component={RegisterScreen} />
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="First" component={FirstScreen} />
-        <Stack.Screen name="PhoneAuth" component={PhoneAuthScreen} />
-        <Stack.Screen name="NameSurname" component={NameSurnameAuthScreen} />
+        <Stack.Screen
+          name="Home"
+          component={HomeTabs}
+          options={{ animation: "slide_from_right" }}
+        />
+        <Stack.Screen
+          name="Register"
+          component={RegisterScreen}
+          options={{ animation: "slide_from_right" }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{ animation: "slide_from_right" }}
+        />
+        <Stack.Screen
+          name="First"
+          component={FirstScreen}
+          options={{ animation: "slide_from_right" }}
+        />
+        <Stack.Screen
+          name="PhoneAuth"
+          component={PhoneAuthScreen}
+          options={{ animation: "slide_from_right" }}
+        />
+        <Stack.Screen
+          name="NameSurname"
+          component={NameSurnameAuthScreen}
+          options={{ animation: "slide_from_right" }}
+        />
         <Stack.Screen name="Matches" component={MatchScreen} />
         <Stack.Screen name="Message" component={MessageScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
-        <Stack.Screen name="Settings" component={SettingsScreen} />
+        <Stack.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={{
+            headerShown: true,
+            title: "Ayarlar",
+            animation: "slide_from_left",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="EditUserProfile"
+          component={EditProfile}
+          options={{
+            headerShown: true,
+            title: "Profili Düzenle",
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -56,7 +115,7 @@ function HomeTabs() {
           } else if (route.name === "Message") {
             iconName = focused ? "mail" : "mail-outline";
           }
-          return <Ionicons name={iconName} size={24} color={colors.primary} />;
+          return <Ionicons name={iconName} size={26} color={colors.primary} />;
         },
 
         tabBarInactiveBackgroundColor: "white",
@@ -67,9 +126,9 @@ function HomeTabs() {
       initialRouteName="HomeTab"
     >
       <Tab.Screen name="Matches" component={MatchScreen} />
-      <Tab.Screen name="Message" component={MessageScreen} />
       <Tab.Screen name="HomeTab" component={HomeScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen name="Message" component={MessageScreen} />
+      {/* <Tab.Screen name="Settings" component={SettingsScreen} /> */}
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
