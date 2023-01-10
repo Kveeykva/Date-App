@@ -9,7 +9,7 @@ const ProfilePicture = (props) => {
   const firstPhoto = carousel.slice(0, 1);
 
   return (
-    <View>
+    <View style={props.style}>
       {firstPhoto.map((item) => {
         return (
           <Image
