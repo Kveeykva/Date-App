@@ -8,7 +8,7 @@ const Discover = (props) => {
   return (
     <View style={styles.container}>
       <Pressable>
-        <Text style={styles.discoverText}>DISCOVER</Text>
+        <Text style={styles.discoverText}>Keşfet</Text>
         <View style={styles.locationContainer}>
           <FontAwesome name="map-marker" style={styles.Icon} />
           <Text style={styles.cityText}>Deneme, Şehir</Text>

@@ -8,9 +8,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     flex: 1,
   },
-  inlineContainer: {
-    marginTop: 20,
-  },
   nameText: {
     fontSize: 20,
     fontWeight: "bold",
@@ -124,7 +121,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   premiumContentView: {
-    marginHorizontal: 20,
+    marginBottom: 20,
   },
 });
 

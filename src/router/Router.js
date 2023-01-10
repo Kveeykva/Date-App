@@ -12,7 +12,7 @@ import MatchScreen from "../pages/Matches";
 import MessageScreen from "../pages/Messages";
 import ProfileScreen from "../pages/Profile";
 import SettingsScreen from "../pages/Settings";
-import EditProfile from "../components/Modal/editProfile";
+import EditProfileScreen from "../pages/EditProfile";
 import { Ionicons } from "@expo/vector-icons";
 import colors from "../colors";
 
@@ -78,7 +78,7 @@ const Router = (props) => {
         />
         <Stack.Screen
           name="EditUserProfile"
-          component={EditProfile}
+          component={EditProfileScreen}
           options={{
             headerShown: true,
             title: "Profili Düzenle",

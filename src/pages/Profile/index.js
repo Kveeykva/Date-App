@@ -22,11 +22,8 @@ const ProfileScreen = (props) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={styles.inlineContainer}
-      >
-        <ProfilePicture />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <ProfilePicture style={{ marginTop: 20 }} />
         <Text style={styles.nameText}>
           {firstName.map((item) => {
             return (
