@@ -4,9 +4,15 @@ import styles from "./styles";
 import { RadioButton, Switch } from "react-native-paper";
 import colors from "../../../colors";
 import Button from "../../../components/Button";
+import { setAttribute } from "../../../redux/Slices/accountSlice";
+import { useDispatch } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
 
 const PetScreen = (props) => {
-  const [pet, setPet] = useState();
+  const dispatch = useDispatch();
+  const { value } = props.route.params;
+  const navigation = useNavigation();
+  const [pet, setPet] = useState(value);
 
   return (
     <View style={styles.container}>
@@ -16,85 +22,95 @@ const PetScreen = (props) => {
 
           <View>
             <TouchableOpacity
-              onPress={() => setPet("Cat")}
+              onPress={() => setPet("Kedi")}
               style={styles.buttonView}
             >
               <Text>Kedi</Text>
               <RadioButton
                 value="Cat"
-                status={pet === "Cat" ? "checked" : "unchecked"}
+                status={pet === "Kedi" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setPet("Cat")}
+                onPress={() => setPet("Kedi")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setPet("Dog")}
+              onPress={() => setPet("Köpek")}
               style={styles.buttonView}
             >
               <Text>Köpek</Text>
               <RadioButton
-                value="Dog"
-                status={pet === "Dog" ? "checked" : "unchecked"}
+                value="Köpek"
+                status={pet === "Köpek" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setPet("Dog")}
+                onPress={() => setPet("Köpek")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setPet("Bird")}
+              onPress={() => setPet("Kuş")}
               style={styles.buttonView}
             >
               <Text>Kuş</Text>
               <RadioButton
                 value="Bird"
-                status={pet === "Bird" ? "checked" : "unchecked"}
+                status={pet === "Kuş" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setPet("Bird")}
+                onPress={() => setPet("Kuş")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setPet("Fish")}
+              onPress={() => setPet("Balık")}
               style={styles.buttonView}
             >
               <Text>Balık</Text>
               <RadioButton
                 value="Fish"
-                status={pet === "Fish" ? "checked" : "unchecked"}
+                status={pet === "Balık" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setPet("Fish")}
+                onPress={() => setPet("Balık")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setPet("Don't Like")}
+              onPress={() => setPet("Hoşlanmam")}
               style={styles.buttonView}
             >
               <Text>Hoşlanmam</Text>
               <RadioButton
                 value="Don't Like"
-                status={pet === "Don't Like" ? "checked" : "unchecked"}
+                status={pet === "Hoşlanmam" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setPet("Don't Like")}
+                onPress={() => setPet("Hoşlanmam")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setPet("More")}
+              onPress={() => setPet("Birden Fazla Evcil Hayvanım Var")}
               style={styles.buttonView}
             >
               <Text>Birden Fazla Evcil Hayvanım Var</Text>
               <RadioButton
                 value="More"
-                status={pet === "More" ? "checked" : "unchecked"}
+                status={
+                  pet === "Birden Fazla Evcil Hayvanım Var"
+                    ? "checked"
+                    : "unchecked"
+                }
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setPet("More")}
+                onPress={() => setPet("Birden Fazla Evcil Hayvanım Var")}
               />
             </TouchableOpacity>
             <View>
-              <Button text="Kaydet ve çık" />
+              <Button
+                onPress={() => {
+                  dispatch(setAttribute({ pet: pet }));
+                  navigation.goBack();
+                }}
+                text="Kaydet ve çık"
+              />
             </View>
           </View>
         </View>

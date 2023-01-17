@@ -27,11 +27,13 @@ import LookingForScreen from "../pages/EditProfile/myBasicsPages/lookingFor";
 import SporScreen from "../pages/EditProfile/myBasicsPages/spor";
 import PoliticsScreen from "../pages/EditProfile/myBasicsPages/politics";
 import PetScreen from "../pages/EditProfile/myBasicsPages/pet";
+import EditProfileAttribute from "../pages/EditProfile/editProfile";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const Router = (props) => {
+  const title = props.title;
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -106,13 +108,13 @@ const Router = (props) => {
             headerTitleAlign: "center",
           }}
         />
-        {/* Burası Farklı bir yere aktarılabilir bunu sor Profili  Düzenlede Temel Bilgiler kısmı */}
+
         <Stack.Screen
-          name="Gender"
-          component={GenderScreen}
-          options={{
+          name="EditProfileAttributes"
+          component={EditProfileAttribute}
+          options={({ route }) => ({
+            title: route.params.headerTitle,
             headerShown: true,
-            title: "Cinsiyetini Belirle",
             animation: "slide_from_right",
             headerStyle: {
               backgroundColor: colors.primary,
@@ -122,196 +124,8 @@ const Router = (props) => {
               fontWeight: "bold",
             },
             headerTitleAlign: "center",
-          }}
+          })}
         />
-        <Stack.Screen
-          name="Zodiac"
-          component={ZodiacSignScreen}
-          options={{
-            headerShown: true,
-            title: "Burç",
-            animation: "slide_from_right",
-            headerStyle: {
-              backgroundColor: colors.primary,
-            },
-            headerTintColor: colors.white,
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            headerTitleAlign: "center",
-          }}
-        />
-        <Stack.Screen
-          name="Education"
-          component={EducationScreen}
-          options={{
-            headerShown: true,
-            title: "Eğitim",
-            animation: "slide_from_right",
-            headerStyle: {
-              backgroundColor: colors.primary,
-            },
-            headerTintColor: colors.white,
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            headerTitleAlign: "center",
-          }}
-        />
-        <Stack.Screen
-          name="Work"
-          component={WorkScreen}
-          options={{
-            headerShown: true,
-            title: "Meslek",
-            animation: "slide_from_right",
-            headerStyle: {
-              backgroundColor: colors.primary,
-            },
-            headerTintColor: colors.white,
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            headerTitleAlign: "center",
-          }}
-        />
-        <Stack.Screen
-          name="HomeTown"
-          component={HomeTownScreen}
-          options={{
-            headerShown: true,
-            title: "Memleket",
-            animation: "slide_from_right",
-            headerStyle: {
-              backgroundColor: colors.primary,
-            },
-            headerTintColor: colors.white,
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            headerTitleAlign: "center",
-          }}
-        />
-        <Stack.Screen
-          name="Location"
-          component={LocationScreen}
-          options={{
-            headerShown: true,
-            title: "Konum",
-            animation: "slide_from_right",
-            headerStyle: {
-              backgroundColor: colors.primary,
-            },
-            headerTintColor: colors.white,
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            headerTitleAlign: "center",
-          }}
-        />
-        <Stack.Screen
-          name="Smoke"
-          component={SmokeScreen}
-          options={{
-            headerShown: true,
-            title: "Sigara Kullanımı",
-            animation: "slide_from_right",
-            headerStyle: {
-              backgroundColor: colors.primary,
-            },
-            headerTintColor: colors.white,
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            headerTitleAlign: "center",
-          }}
-        />
-        <Stack.Screen
-          name="Drink"
-          component={DrinkScreen}
-          options={{
-            headerShown: true,
-            title: "Alkol Kullanımı",
-            animation: "slide_from_right",
-            headerStyle: {
-              backgroundColor: colors.primary,
-            },
-            headerTintColor: colors.white,
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            headerTitleAlign: "center",
-          }}
-        />
-        <Stack.Screen
-          name="Pet"
-          component={PetScreen}
-          options={{
-            headerShown: true,
-            title: "Evcil Hayvan",
-            animation: "slide_from_right",
-            headerStyle: {
-              backgroundColor: colors.primary,
-            },
-            headerTintColor: colors.white,
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            headerTitleAlign: "center",
-          }}
-        />
-        <Stack.Screen
-          name="Politics"
-          component={PoliticsScreen}
-          options={{
-            headerShown: true,
-            title: "Politika",
-            animation: "slide_from_right",
-            headerStyle: {
-              backgroundColor: colors.primary,
-            },
-            headerTintColor: colors.white,
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            headerTitleAlign: "center",
-          }}
-        />
-        <Stack.Screen
-          name="Spor"
-          component={SporScreen}
-          options={{
-            headerShown: true,
-            title: "Spor",
-            animation: "slide_from_right",
-            headerStyle: {
-              backgroundColor: colors.primary,
-            },
-            headerTintColor: colors.white,
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            headerTitleAlign: "center",
-          }}
-        />
-        <Stack.Screen
-          name="LookingFor"
-          component={LookingForScreen}
-          options={{
-            headerShown: true,
-            title: "Buradayım Çünkü",
-            animation: "slide_from_right",
-            headerStyle: {
-              backgroundColor: colors.primary,
-            },
-            headerTintColor: colors.white,
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-            headerTitleAlign: "center",
-          }}
-        />
-        {/* Burası Farklı bir yere aktarılabilir bunu sor Profili  Düzenlede Temel Bilgiler kısmı */}
       </Stack.Navigator>
     </NavigationContainer>
   );

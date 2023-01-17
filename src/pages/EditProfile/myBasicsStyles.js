@@ -20,6 +20,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginRight: 10,
   },
+  rightTexts: {
+    color: colors.black,
+    alignSelf: "center",
+    position: "absolute",
+    right: 0,
+    fontSize: 14,
+    marginRight: 30,
+  },
   iconView: {
     alignSelf: "center",
   },

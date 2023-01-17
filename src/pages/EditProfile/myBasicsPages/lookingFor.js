@@ -4,9 +4,15 @@ import styles from "./styles";
 import { RadioButton, Switch } from "react-native-paper";
 import colors from "../../../colors";
 import Button from "../../../components/Button";
+import { useDispatch } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
+import { setAttribute } from "../../../redux/Slices/accountSlice";
 
 const LookingForScreen = (props) => {
-  const [looking, setLooking] = useState();
+  const dispatch = useDispatch();
+  const { value } = props.route.params;
+  const [looking, setLooking] = useState(value);
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -17,72 +23,84 @@ const LookingForScreen = (props) => {
 
           <View>
             <TouchableOpacity
-              onPress={() => setLooking("LongDated")}
+              onPress={() => setLooking("Uzun Süreli İlişki")}
               style={styles.buttonView}
             >
               <Text>Uzun Süreli İlişki</Text>
               <RadioButton
                 value="LongDated"
-                status={looking === "LongDated" ? "checked" : "unchecked"}
+                status={
+                  looking === "Uzun Süreli İlişki" ? "checked" : "unchecked"
+                }
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setLooking("LongDated")}
+                onPress={() => setLooking("Uzun Süreli İlişki")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setLooking("ShortDated")}
+              onPress={() => setLooking("Kısa Süreli İlişki")}
               style={styles.buttonView}
             >
               <Text>Kısa Süreli İlişki</Text>
               <RadioButton
                 value="ShortDated"
-                status={looking === "ShortDated" ? "checked" : "unchecked"}
+                status={
+                  looking === "Kısa Süreli İlişki" ? "checked" : "unchecked"
+                }
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setLooking("ShortDated")}
+                onPress={() => setLooking("Kısa Süreli İlişki")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setLooking("JustForFun")}
+              onPress={() => setLooking("Sadece Eğlence")}
               style={styles.buttonView}
             >
               <Text>Sadece Eğlence</Text>
               <RadioButton
                 value="JustForFun"
-                status={looking === "JustForFun" ? "checked" : "unchecked"}
+                status={looking === "Sadece Eğlence" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setLooking("JustForFun")}
+                onPress={() => setLooking("Sadece Eğlence")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setLooking("Friendship")}
+              onPress={() => setLooking("Arkadaşlık")}
               style={styles.buttonView}
             >
               <Text>Arkadaşlık</Text>
               <RadioButton
                 value="Friendship"
-                status={looking === "Friendship" ? "checked" : "unchecked"}
+                status={looking === "Arkadaşlık" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setLooking("Friendship")}
+                onPress={() => setLooking("Arkadaşlık")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setLooking("NotSure")}
+              onPress={() => setLooking("Henüz Karar Vermedim")}
               style={styles.buttonView}
             >
               <Text>Henüz Karar Vermedim</Text>
               <RadioButton
                 value="NotSure"
-                status={looking === "NotSure" ? "checked" : "unchecked"}
+                status={
+                  looking === "Henüz Karar Vermedim" ? "checked" : "unchecked"
+                }
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setLooking("NotSure")}
+                onPress={() => setLooking("Henüz Karar Vermedim")}
               />
             </TouchableOpacity>
             <View>
-              <Button text="Kaydet ve çık" />
+              <Button
+                onPress={() => {
+                  dispatch(setAttribute({ looking: looking }));
+                  navigation.goBack();
+                }}
+                text="Kaydet ve çık"
+              />
             </View>
           </View>
         </View>

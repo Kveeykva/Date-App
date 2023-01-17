@@ -4,9 +4,15 @@ import styles from "./styles";
 import { RadioButton, Switch } from "react-native-paper";
 import colors from "../../../colors";
 import Button from "../../../components/Button";
+import { setAttribute } from "../../../redux/Slices/accountSlice";
+import { useDispatch } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
 
 const PoliticsScreen = (props) => {
-  const [politics, setPolitics] = useState();
+  const dispatch = useDispatch();
+  const { value } = props.route.params;
+  const navigation = useNavigation();
+  const [politics, setPolitics] = useState(value);
 
   return (
     <View style={styles.container}>
@@ -16,29 +22,29 @@ const PoliticsScreen = (props) => {
 
           <View>
             <TouchableOpacity
-              onPress={() => setPolitics("Apolitical")}
+              onPress={() => setPolitics("Apolitik")}
               style={styles.buttonView}
             >
               <Text>Apolitik</Text>
               <RadioButton
                 value="Apolitical"
-                status={politics === "Apolitical" ? "checked" : "unchecked"}
+                status={politics === "Apolitik" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setPolitics("Apolitical")}
+                onPress={() => setPolitics("Apolitik")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setPolitics("Conservative")}
+              onPress={() => setPolitics("Muhafazakâr")}
               style={styles.buttonView}
             >
               <Text>Muhafazakâr</Text>
               <RadioButton
                 value="Conservative"
-                status={politics === "Conservative" ? "checked" : "unchecked"}
+                status={politics === "Muhafazakâr" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setPolitics("Conservative")}
+                onPress={() => setPolitics("Muhafazakâr")}
               />
             </TouchableOpacity>
             <TouchableOpacity
@@ -55,33 +61,39 @@ const PoliticsScreen = (props) => {
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setPolitics("SocialDemocrat")}
+              onPress={() => setPolitics("Demokrat")}
               style={styles.buttonView}
             >
               <Text>Demokrat</Text>
               <RadioButton
                 value="SocialDemocrat"
-                status={politics === "SocialDemocrat" ? "checked" : "unchecked"}
+                status={politics === "Demokrat" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setPolitics("SocialDemocrat")}
+                onPress={() => setPolitics("Demokrat")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setPolitics("Nationalist")}
+              onPress={() => setPolitics("Milliyetçi")}
               style={styles.buttonView}
             >
               <Text>Milliyetçi</Text>
               <RadioButton
                 value="Nationalist"
-                status={politics === "Nationalist" ? "checked" : "unchecked"}
+                status={politics === "Milliyetçi" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setPolitics("Nationalist")}
+                onPress={() => setPolitics("Milliyetçi")}
               />
             </TouchableOpacity>
             <View>
-              <Button text="Kaydet ve çık" />
+              <Button
+                onPress={() => {
+                  dispatch(setAttribute({ politics: politics }));
+                  navigation.goBack();
+                }}
+                text="Kaydet ve çık"
+              />
             </View>
           </View>
         </View>

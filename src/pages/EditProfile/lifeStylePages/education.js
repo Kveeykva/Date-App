@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import styles from "./styles";
-import { RadioButton, Switch } from "react-native-paper";
+import { RadioButton } from "react-native-paper";
 import colors from "../../../colors";
 import Button from "../../../components/Button";
+import { useNavigation } from "@react-navigation/native";
+import { setAttribute } from "../../../redux/Slices/accountSlice";
+import { useDispatch } from "react-redux";
 
 const EducationScreen = (props) => {
-  const [education, setEducation] = useState();
+  const { value } = props.route.params;
+  const [education, setEducation] = useState(value);
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   return (
     <View style={styles.container}>
@@ -16,93 +22,101 @@ const EducationScreen = (props) => {
 
           <View>
             <TouchableOpacity
-              onPress={() => setEducation("UniversityGraduate")}
+              onPress={() => setEducation("Üniversite Mezunu")}
               style={styles.buttonView}
             >
               <Text>Üniversite Mezunu</Text>
               <RadioButton
                 value="UniversityGraduate"
                 status={
-                  education === "UniversityGraduate" ? "checked" : "unchecked"
+                  education === "Üniversite Mezunu" ? "checked" : "unchecked"
                 }
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setEducation("UniversityGraduate")}
+                onPress={() => setEducation("Üniversite Mezunu")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setEducation("UniversityStudent")}
+              onPress={() => setEducation("Üniversite Öğrencisi")}
               style={styles.buttonView}
             >
               <Text>Üniversite Öğrencisi</Text>
               <RadioButton
                 value="UniversityStudent"
                 status={
-                  education === "UniversityStudent" ? "checked" : "unchecked"
+                  education === "Üniversite Öğrencisi" ? "checked" : "unchecked"
                 }
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setEducation("UniversityStudent")}
+                onPress={() => setEducation("Üniversite Öğrencisi")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setEducation("HighSchoolGraduate")}
+              onPress={() => setEducation("Lise Mezunu")}
               style={styles.buttonView}
             >
               <Text>Lise Mezunu</Text>
               <RadioButton
                 value="HighSchoolGraduate"
-                status={
-                  education === "HighSchoolGraduate" ? "checked" : "unchecked"
-                }
+                status={education === "Lise Mezunu" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setEducation("HighSchoolGraduate")}
+                onPress={() => setEducation("Lise Mezunu")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setEducation("PhD")}
+              onPress={() => setEducation("Doktora")}
               style={styles.buttonView}
             >
               <Text>Doktora</Text>
               <RadioButton
                 value="PhD"
-                status={education === "PhD" ? "checked" : "unchecked"}
+                status={education === "Doktora" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setEducation("PhD")}
+                onPress={() => setEducation("Doktora")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setEducation("GraduateStudent")}
+              onPress={() => setEducation("Yüksek Lisans Öğrencisi")}
               style={styles.buttonView}
             >
               <Text>Yüksek Lisans Öğrencisi</Text>
               <RadioButton
-                value="GraduateStudent"
+                value=""
                 status={
-                  education === "GraduateStudent" ? "checked" : "unchecked"
+                  education === "Yüksek Lisans Öğrencisi"
+                    ? "checked"
+                    : "unchecked"
                 }
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setEducation("GraduateStudent")}
+                onPress={() => setEducation("Yüksek Lisans Öğrencisi")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setEducation("Graduate")}
+              onPress={() => setEducation("Yüksek Lisans Mezunu")}
               style={styles.buttonView}
             >
               <Text>Yüksek Lisans Mezunu</Text>
               <RadioButton
                 value="Graduate"
-                status={education === "Graduate" ? "checked" : "unchecked"}
+                status={
+                  education === "Yüksek Lisans Mezunu" ? "checked" : "unchecked"
+                }
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setEducation("Graduate")}
+                onPress={() => setEducation("Yüksek Lisans Mezunu")}
               />
             </TouchableOpacity>
             <View>
-              <Button text="Kaydet ve çık" />
+              <Button
+                onPress={() => {
+                  dispatch(setAttribute({ education: education }));
+                  navigation.goBack();
+                }}
+                text="Kaydet ve çık"
+              />
             </View>
           </View>
         </View>

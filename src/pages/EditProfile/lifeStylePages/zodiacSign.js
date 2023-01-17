@@ -4,9 +4,16 @@ import styles from "./styles";
 import { RadioButton, Switch } from "react-native-paper";
 import colors from "../../../colors";
 import Button from "../../../components/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
+import { setAttribute } from "../../../redux/Slices/accountSlice";
 
 const ZodiacSignScreen = (props) => {
-  const [zodiac, setZodiac] = useState();
+  const dispatch = useDispatch();
+  const { value } = props.route.params;
+  const [zodiac, setZodiac] = useState(value);
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -172,7 +179,13 @@ const ZodiacSignScreen = (props) => {
             </TouchableOpacity>
             <View></View>
             <View>
-              <Button text="Kaydet ve çık" />
+              <Button
+                onPress={() => {
+                  dispatch(setAttribute({ zodiac: zodiac }));
+                  navigation.goBack();
+                }}
+                text="Kaydet ve çık"
+              />
             </View>
           </View>
         </View>

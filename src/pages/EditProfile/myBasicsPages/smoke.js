@@ -4,9 +4,15 @@ import styles from "./styles";
 import { RadioButton, Switch } from "react-native-paper";
 import colors from "../../../colors";
 import Button from "../../../components/Button";
+import { setAttribute } from "../../../redux/Slices/accountSlice";
+import { useDispatch } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
 
 const SmokeScreen = (props) => {
-  const [education, setEducation] = useState();
+  const dispatch = useDispatch();
+  const { value } = props.route.params;
+  const navigation = useNavigation();
+  const [smoke, setSmoke] = useState(value);
 
   return (
     <View style={styles.container}>
@@ -16,59 +22,67 @@ const SmokeScreen = (props) => {
 
           <View>
             <TouchableOpacity
-              onPress={() => setEducation("Social")}
+              onPress={() => setSmoke("Sosyal İçici")}
               style={styles.buttonView}
             >
               <Text>Sosyal İçici</Text>
               <RadioButton
                 value="Social"
-                status={education === "Social" ? "checked" : "unchecked"}
+                status={smoke === "Sosyal İçici" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setEducation("Social")}
+                onPress={() => setSmoke("Sosyal İçici")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setEducation("Regular")}
+              onPress={() => setSmoke("Arada Sırada")}
               style={styles.buttonView}
             >
               <Text>Arada Sırada</Text>
               <RadioButton
                 value="Regular"
-                status={education === "Regular" ? "checked" : "unchecked"}
+                status={smoke === "Arada Sırada" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setEducation("UniversRegularityStudent")}
+                onPress={() => setSmoke("Arada Sırada")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setEducation("Never")}
+              onPress={() => setSmoke("Asla")}
               style={styles.buttonView}
             >
               <Text>Asla</Text>
               <RadioButton
                 value="Never"
-                status={education === "Never" ? "checked" : "unchecked"}
+                status={smoke === "Asla" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setEducation("Never")}
+                onPress={() => setSmoke("Asla")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setEducation("TryToQuit")}
+              onPress={() => setSmoke("Bırakmaya Çalışıyor")}
               style={styles.buttonView}
             >
               <Text>Bırakmaya Çalışıyor</Text>
               <RadioButton
                 value="TryToQuit"
-                status={education === "TryToQuit" ? "checked" : "unchecked"}
+                status={
+                  smoke === "Bırakmaya Çalışıyor" ? "checked" : "unchecked"
+                }
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setEducation("TryToQuit")}
+                onPress={() => setSmoke("Bırakmaya Çalışıyor")}
               />
             </TouchableOpacity>
             <View>
-              <Button text="Kaydet ve çık" />
+              <Button
+                onPress={() => {
+                  dispatch(setAttribute({ smoke: smoke }));
+                  navigation.goBack();
+                }}
+                text="Kaydet ve çık"
+              />
             </View>
           </View>
         </View>

@@ -4,9 +4,15 @@ import styles from "./styles";
 import { RadioButton, Switch } from "react-native-paper";
 import colors from "../../../colors";
 import Button from "../../../components/Button";
+import { useDispatch } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
+import { setAttribute } from "../../../redux/Slices/accountSlice";
 
 const DrinkScreen = (props) => {
-  const [drink, setDrink] = useState();
+  const dispatch = useDispatch();
+  const { value } = props.route.params;
+  const [drink, setDrink] = useState(value);
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -16,73 +22,79 @@ const DrinkScreen = (props) => {
 
           <View>
             <TouchableOpacity
-              onPress={() => setDrink("Never")}
+              onPress={() => setDrink("Asla")}
               style={styles.buttonView}
             >
               <Text>Asla</Text>
               <RadioButton
                 value="Never"
-                status={drink === "Never" ? "checked" : "unchecked"}
+                status={drink === "Asla" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setDrink("Never")}
+                onPress={() => setDrink("Asla")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setDrink("Frequently")}
+              onPress={() => setDrink("Sıklıkla")}
               style={styles.buttonView}
             >
               <Text>Sık Sık</Text>
               <RadioButton
                 value="Frequently"
-                status={drink === "Frequently" ? "checked" : "unchecked"}
+                status={drink === "Sıklıkla" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setDrink("Frequently")}
+                onPress={() => setDrink("Sıklıkla")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setDrink("Rarely")}
+              onPress={() => setDrink("Nadiren")}
               style={styles.buttonView}
             >
               <Text>Nadiren</Text>
               <RadioButton
                 value="Rarely"
-                status={drink === "Rarely" ? "checked" : "unchecked"}
+                status={drink === "Nadiren" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setDrink("Rarely")}
+                onPress={() => setDrink("Nadiren")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setDrink("SpecialDays")}
+              onPress={() => setDrink("Özel Günlerde")}
               style={styles.buttonView}
             >
               <Text>Özel Günlerde</Text>
               <RadioButton
                 value="SpecialDays"
-                status={drink === "SpecialDays" ? "checked" : "unchecked"}
+                status={drink === "Özel Günlerde" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setDrink("SpecialDays")}
+                onPress={() => setDrink("Özel Günlerde")}
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setDrink("MostNights")}
+              onPress={() => setDrink("Çoğu Gece")}
               style={styles.buttonView}
             >
               <Text>Çoğu Gece</Text>
               <RadioButton
                 value="MostNights"
-                status={drink === "MostNights" ? "checked" : "unchecked"}
+                status={drink === "Çoğu Gece" ? "checked" : "unchecked"}
                 color={colors.primary}
                 uncheckedColor={colors.grey}
-                onPress={() => setDrink("MostNights")}
+                onPress={() => setDrink("Çoğu Gece")}
               />
             </TouchableOpacity>
 
             <View>
-              <Button text="Kaydet ve çık" />
+              <Button
+                onPress={() => {
+                  dispatch(setAttribute({ drink: drink }));
+                  navigation.goBack();
+                }}
+                text="Kaydet ve çık"
+              />
             </View>
           </View>
         </View>

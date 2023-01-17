@@ -4,17 +4,17 @@ import styles from "./styles";
 import { RadioButton, Switch } from "react-native-paper";
 import colors from "../../../colors";
 import Button from "../../../components/Button";
-import { accountSlice, setAttribute } from "../../../redux/Slices/accountSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { setAttribute } from "../../../redux/Slices/accountSlice";
+import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 
 const GenderScreen = (props) => {
   const dispatch = useDispatch();
-  const [gender, setGender] = useState();
+  const { value } = props.route.params;
+  const [gender, setGender] = useState(value);
   const [isSwitchOn, setIsSwitchOn] = useState(false);
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
   const navigation = useNavigation();
-
   return (
     <View style={styles.container}>
       <View style={styles.inlineContainer}>
@@ -81,7 +81,10 @@ const GenderScreen = (props) => {
 
           <View>
             <Button
-              onPress={() => dispatch(setAttribute(gender))}
+              onPress={() => {
+                dispatch(setAttribute({ gender: gender }));
+                navigation.goBack();
+              }}
               text="Kaydet ve çık"
             />
           </View>

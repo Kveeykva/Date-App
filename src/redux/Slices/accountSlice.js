@@ -8,7 +8,7 @@ export const accountSlice = createSlice({
     },
   },
   initialState: {
-    userDetail: undefined,
+    userDetail: {},
   },
 });
 
