@@ -3,12 +3,12 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import colors from "../../colors";
 
 const InterestButton = (props) => {
-  const { text } = props;
+  const { text, style } = props;
   const [selected, setSelected] = useState(false);
 
   return (
     <TouchableOpacity
-      style={selected ? styles.selected : styles.button}
+      style={[selected ? styles.selected : styles.button, style]}
       onPress={() => setSelected(!selected)}
     >
       <Text style={selected ? styles.selectedText : styles.buttonText}>

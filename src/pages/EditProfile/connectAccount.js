@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import styles from "./connectAccountStyles";
 import { Entypo } from "@expo/vector-icons";
+
 const ConnectAccount = (props) => {
   return (
     <View>

@@ -78,6 +78,20 @@ const styles = StyleSheet.create({
   iconView: {
     alignSelf: "center",
   },
+  input: {
+    justifyContent: "center",
+    backgroundColor: colors.white,
+    shadowColor: colors.black,
+    marginVertical: 10,
+    borderRadius: 10,
+    marginHorizontal: 10,
+    paddingHorizontal: 10,
+    width: "80%",
+    alignSelf: "center",
+    height: 50,
+    borderWidth: 1,
+    width: width - 20,
+  },
 });
 
 export default styles;

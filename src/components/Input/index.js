@@ -22,7 +22,7 @@ const Input = (props) => {
   return (
     <View style={[styles.inputView]}>
       <TextInput
-        style={styles.input}
+        style={[styles.input, props.style]}
         onFocus={() => setIsFocused(false)}
         onChangeText={onChangeText}
         onBlur={onBlur}

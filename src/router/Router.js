@@ -15,6 +15,18 @@ import SettingsScreen from "../pages/Settings";
 import EditProfileScreen from "../pages/EditProfile";
 import { Ionicons } from "@expo/vector-icons";
 import colors from "../colors";
+import GenderScreen from "../pages/EditProfile/lifeStylePages/gender";
+import ZodiacSignScreen from "../pages/EditProfile/lifeStylePages/zodiacSign";
+import EducationScreen from "../pages/EditProfile/lifeStylePages/education";
+import WorkScreen from "../pages/EditProfile/lifeStylePages/work";
+import HomeTownScreen from "../pages/EditProfile/lifeStylePages/homeTown";
+import LocationScreen from "../pages/EditProfile/lifeStylePages/location";
+import SmokeScreen from "../pages/EditProfile/myBasicsPages/smoke";
+import DrinkScreen from "../pages/EditProfile/myBasicsPages/drink";
+import LookingForScreen from "../pages/EditProfile/myBasicsPages/lookingFor";
+import SporScreen from "../pages/EditProfile/myBasicsPages/spor";
+import PoliticsScreen from "../pages/EditProfile/myBasicsPages/politics";
+import PetScreen from "../pages/EditProfile/myBasicsPages/pet";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -59,6 +71,7 @@ const Router = (props) => {
         <Stack.Screen name="Matches" component={MatchScreen} />
         <Stack.Screen name="Message" component={MessageScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
+
         <Stack.Screen
           name="Settings"
           component={SettingsScreen}
@@ -93,6 +106,212 @@ const Router = (props) => {
             headerTitleAlign: "center",
           }}
         />
+        {/* Burası Farklı bir yere aktarılabilir bunu sor Profili  Düzenlede Temel Bilgiler kısmı */}
+        <Stack.Screen
+          name="Gender"
+          component={GenderScreen}
+          options={{
+            headerShown: true,
+            title: "Cinsiyetini Belirle",
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="Zodiac"
+          component={ZodiacSignScreen}
+          options={{
+            headerShown: true,
+            title: "Burç",
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="Education"
+          component={EducationScreen}
+          options={{
+            headerShown: true,
+            title: "Eğitim",
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="Work"
+          component={WorkScreen}
+          options={{
+            headerShown: true,
+            title: "Meslek",
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="HomeTown"
+          component={HomeTownScreen}
+          options={{
+            headerShown: true,
+            title: "Memleket",
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="Location"
+          component={LocationScreen}
+          options={{
+            headerShown: true,
+            title: "Konum",
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="Smoke"
+          component={SmokeScreen}
+          options={{
+            headerShown: true,
+            title: "Sigara Kullanımı",
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="Drink"
+          component={DrinkScreen}
+          options={{
+            headerShown: true,
+            title: "Alkol Kullanımı",
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="Pet"
+          component={PetScreen}
+          options={{
+            headerShown: true,
+            title: "Evcil Hayvan",
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="Politics"
+          component={PoliticsScreen}
+          options={{
+            headerShown: true,
+            title: "Politika",
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="Spor"
+          component={SporScreen}
+          options={{
+            headerShown: true,
+            title: "Spor",
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen
+          name="LookingFor"
+          component={LookingForScreen}
+          options={{
+            headerShown: true,
+            title: "Buradayım Çünkü",
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
+        />
+        {/* Burası Farklı bir yere aktarılabilir bunu sor Profili  Düzenlede Temel Bilgiler kısmı */}
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -133,4 +352,5 @@ function HomeTabs() {
     </Tab.Navigator>
   );
 }
+
 export default Router;

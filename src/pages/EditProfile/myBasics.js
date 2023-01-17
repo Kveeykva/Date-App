@@ -1,15 +1,21 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import styles from "./myBasicsStyles";
-import Button from "../../components/Button";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import { useSelector } from "react-redux";
 
 const MyBasics = (props) => {
+  const gender = useSelector((state) => state.user);
+  const navigation = useNavigation();
   return (
     <View>
       <Text style={styles.title}>Temel Bilgiler</Text>
       <View style={styles.container}>
-        <TouchableOpacity style={styles.myBasics}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Gender")}
+          style={styles.myBasics}
+        >
           <Ionicons
             style={styles.iconView}
             name="body"
@@ -17,10 +23,14 @@ const MyBasics = (props) => {
             color="black"
           />
           <Text style={styles.myBasicsText}>Cinsiyet</Text>
+          <Text style={styles.rightText}>{gender}</Text>
           <Text style={styles.rightText}>{">"}</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.myBasics}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Zodiac")}
+          style={styles.myBasics}
+        >
           <Ionicons
             style={styles.iconView}
             name="aperture"
@@ -31,7 +41,10 @@ const MyBasics = (props) => {
           <Text style={styles.rightText}>{">"}</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.myBasics}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Education")}
+          style={styles.myBasics}
+        >
           <Ionicons
             style={styles.iconView}
             name="school"
@@ -42,7 +55,10 @@ const MyBasics = (props) => {
           <Text style={styles.rightText}>{">"}</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.myBasics}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Work")}
+          style={styles.myBasics}
+        >
           <Ionicons
             style={styles.iconView}
             name="business"
@@ -53,7 +69,10 @@ const MyBasics = (props) => {
           <Text style={styles.rightText}>{">"}</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.myBasics}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Location")}
+          style={styles.myBasics}
+        >
           <Ionicons
             style={styles.iconView}
             name="location"
@@ -64,7 +83,10 @@ const MyBasics = (props) => {
           <Text style={styles.rightText}>{">"}</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.myBasics}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("HomeTown")}
+          style={styles.myBasics}
+        >
           <Ionicons
             style={styles.iconView}
             name="home"
