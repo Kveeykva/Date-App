@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import styles from "./myBasicsStyles";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectAccount } from "../../redux/Slices/accountSlice";
 
 const MyBasics = (props) => {

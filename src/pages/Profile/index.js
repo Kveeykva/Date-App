@@ -14,6 +14,8 @@ import Box from "../../components/Box";
 import Button from "../../components/Button";
 import { useNavigation } from "@react-navigation/native";
 import PremiumContent from "./premiumContent";
+import { Pressable } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 const ProfileScreen = (props) => {
   const navigation = useNavigation();
@@ -23,7 +25,15 @@ const ProfileScreen = (props) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <ProfilePicture style={{ marginTop: 20 }} />
+        <View style={styles.iconTextView}>
+          <IconButton
+            name="settings"
+            onPress={() => navigation.navigate("Settings")}
+            color={colors.darkGrey}
+            size={26}
+          />
+        </View>
+        <ProfilePicture />
         <Text style={styles.nameText}>
           {firstName.map((item) => {
             return (
@@ -33,47 +43,17 @@ const ProfileScreen = (props) => {
             );
           })}
         </Text>
-        <View>
-          <Text style={styles.completeProfile}>Profili tamamla</Text>
+
+        <View style={styles.buttonView}>
+          <Button
+            onPress={() => navigation.navigate("EditUserProfile")}
+            customStyle={styles.editProfileButton}
+            text={"Profili Düzenle "}
+            text2={" >"}
+            textCustomStyle={styles.editProfileButtonText}
+          />
         </View>
-        <View style={styles.iconView}>
-          <View style={styles.iconTextView}>
-            <View style={styles.littleIcon}>
-              <View>
-                <IconButton
-                  name="settings"
-                  onPress={() => navigation.navigate("Settings")}
-                  color={colors.darkGrey}
-                  size={28}
-                />
-              </View>
-            </View>
-            <Text style={styles.iconText}>Ayarlar</Text>
-          </View>
-          <View style={styles.iconTextView}>
-            <View style={styles.icon}>
-              <IconButton
-                name="pencil"
-                onPress={() => navigation.navigate("EditUserProfile")}
-                color={colors.darkGrey}
-                size={30}
-              />
-            </View>
-            <Text style={styles.iconText}>Profili Düzenle</Text>
-          </View>
-          <View style={styles.iconTextView}>
-            <View style={styles.littleIcon}>
-              <IconButton
-                name="shield"
-                onPress={() => console.warn("Safety")}
-                color={colors.darkGrey}
-                size={28}
-              />
-            </View>
-            <Text style={styles.iconText}>Güvenlik</Text>
-          </View>
-        </View>
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <View style={styles.boxView}>
             <View style={styles.premiumBox}>
               <Box
@@ -82,7 +62,7 @@ const ProfileScreen = (props) => {
               />
               <Button
                 text="Premium'a Yükselt 69.99TL"
-                customStyle={styles.button}
+                customStyle={styles.boostButton}
                 textCustomStyle={styles.buttonText}
               />
             </View>

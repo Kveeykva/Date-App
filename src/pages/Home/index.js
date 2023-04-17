@@ -51,7 +51,10 @@ const HomeScreen = (props) => {
           <View style={styles.container}>
             <View style={styles.header}>
               <Discover />
-              <Search onPress={handlePresentModalPress} />
+              <Search
+                customStyle={styles.search}
+                onPress={handlePresentModalPress}
+              />
             </View>
             <View style={styles.carousel}>
               <CarouselPhoto customStyle={styles.carouselPhoto} />

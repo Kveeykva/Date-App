@@ -14,7 +14,7 @@ import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 const PhoneAuthScreen = () => {
-  const phoneRef = useRef(undefined);
+  const phoneRef = useRef();
   const navigation = useNavigation();
 
   return (

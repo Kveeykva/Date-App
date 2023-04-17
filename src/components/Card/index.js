@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { View, Text, Image, Pressable } from "react-native";
+import { View, Text, Image } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./styles";
 import {
@@ -7,8 +7,6 @@ import {
   selectCarousel,
 } from "../../redux/Slices/carouselSlice";
 import Swiper from "react-native-deck-swiper";
-import { Button } from "react-native-paper";
-import { ScrollView } from "react-native";
 
 const CarouselPhoto = (props) => {
   const useSwiper = useRef(null).current;
