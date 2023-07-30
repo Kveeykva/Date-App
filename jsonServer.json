@@ -6,39 +6,44 @@
       "location": "Denizli",
       "distance": "0.2 KM",
       "age": "21",
-      "photo": "https://i.imgur.com/bGWSp0I.png"
+      "photo": "https://i.imgur.com/bGWSp0I.png",
+      "message": "Merhaba, nasılsın?"
     },
     {
       "id": 1,
-      "name": "İsim 2",
+      "name": "Nuri",
       "location": "İstanbul",
       "distance": "150 KM",
       "age": "22",
-      "photo": "https://i.imgur.com/viK6HkX.png"
+      "photo": "https://i.imgur.com/viK6HkX.png",
+      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies ultrices, nunc nisl aliquam nunc, eget aliqua"
     },
     {
       "id": 2,
-      "name": "İsim 3",
+      "name": "Ahmet",
       "location": "Ankara",
       "distance": "100 KM",
       "age": "23",
-      "photo": "https://i.imgur.com/7FZ5rYs.jpeg"
+      "photo": "https://i.imgur.com/7FZ5rYs.jpeg",
+      "message": "Merhaba, Mesajım geliyor mu?"
     },
     {
       "id": 3,
       "name": "İsim 4",
-      "location": "Antalya",
+      "location": "Ceylan",
       "distance": "78 KM",
       "age": "24",
-      "photo": "https://i.imgur.com/e5WxfrR.jpeg"
+      "photo": "https://i.imgur.com/e5WxfrR.jpeg",
+      "message": "Tanışalım mı?"
     },
     {
       "id": 4,
-      "name": "İsim 5",
+      "name": "Hüseyin",
       "location": "İzmir",
       "distance": "0.2 KM",
       "age": "225",
-      "photo": "https://i.imgur.com/Z3UcY9t.jpeg"
+      "photo": "https://i.imgur.com/Z3UcY9t.jpeg",
+      "message": "Merhaba, nasılsın?"
     }
   ]
 }
