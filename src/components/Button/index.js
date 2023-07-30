@@ -3,7 +3,8 @@ import { View, Text, Pressable, TouchableOpacity } from "react-native";
 import styles from "./styles";
 
 const Button = (props) => {
-  const { text, customStyle, textCustomStyle, onPress, isDisabled } = props;
+  const { text, customStyle, textCustomStyle, onPress, isDisabled, text2 } =
+    props;
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -13,7 +14,10 @@ const Button = (props) => {
           : [styles.button, customStyle]
       }
     >
-      <Text style={[styles.buttonText, textCustomStyle]}> {text} </Text>
+      <Text style={[styles.buttonText, textCustomStyle]}>
+        {text}
+        {text2}
+      </Text>
     </TouchableOpacity>
   );
 };

@@ -2,12 +2,12 @@
   "carousel": [
     {
       "id": 0,
-      "name": "Serdar",
+      "name": "İsim",
       "location": "Denizli",
       "distance": "0.2 KM",
       "age": "21",
       "photo": "https://i.imgur.com/bGWSp0I.png",
-      "message": "Merhaba, nasılsın?"
+      "message": "Merhaba ben 1"
     },
     {
       "id": 1,
@@ -16,7 +16,7 @@
       "distance": "150 KM",
       "age": "22",
       "photo": "https://i.imgur.com/viK6HkX.png",
-      "message": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl eget ultricies ultrices, nunc nisl aliquam nunc, eget aliqua"
+      "message": "Merhaba ben 2"
     },
     {
       "id": 2,
@@ -25,7 +25,7 @@
       "distance": "100 KM",
       "age": "23",
       "photo": "https://i.imgur.com/7FZ5rYs.jpeg",
-      "message": "Merhaba, Mesajım geliyor mu?"
+      "message": "Merhaba ben 3"
     },
     {
       "id": 3,
@@ -34,7 +34,7 @@
       "distance": "78 KM",
       "age": "24",
       "photo": "https://i.imgur.com/e5WxfrR.jpeg",
-      "message": "Tanışalım mı?"
+      "message": "Merhaba ben 4"
     },
     {
       "id": 4,
@@ -43,7 +43,97 @@
       "distance": "0.2 KM",
       "age": "225",
       "photo": "https://i.imgur.com/Z3UcY9t.jpeg",
-      "message": "Merhaba, nasılsın?"
+      "message": "Merhaba ben 5"
+    },
+    {
+      "id": 5,
+      "name": "Serdar",
+      "location": "Denizli",
+      "distance": "0.2 KM",
+      "age": "21",
+      "photo": "https://i.imgur.com/bGWSp0I.png",
+      "message": "Merhaba ben Merhaba ben 13"
+    },
+    {
+      "id": 6,
+      "name": "İsim 2",
+      "location": "İstanbul",
+      "distance": "150 KM",
+      "age": "22",
+      "photo": "https://i.imgur.com/viK6HkX.png",
+      "message": "Merhaba ben 7"
+    },
+    {
+      "id": 7,
+      "name": "İsim 3",
+      "location": "Ankara",
+      "distance": "100 KM",
+      "age": "23",
+      "photo": "https://i.imgur.com/7FZ5rYs.jpeg",
+      "message": "Merhaba ben 8"
+    },
+    {
+      "id": 8,
+      "name": "İsim 4",
+      "location": "Antalya",
+      "distance": "78 KM",
+      "age": "24",
+      "photo": "https://i.imgur.com/e5WxfrR.jpeg",
+      "message": "Merhaba ben 9"
+    },
+    {
+      "id": 9,
+      "name": "İsim 5",
+      "location": "İzmir",
+      "distance": "0.2 KM",
+      "age": "225",
+      "photo": "https://i.imgur.com/Z3UcY9t.jpeg",
+      "message": "Merhaba ben 10"
+    },
+    {
+      "id": 10,
+      "name": "Büşra",
+      "location": "Denizli",
+      "distance": "0.2 KM",
+      "age": "21",
+      "photo": "https://i.imgur.com/bGWSp0I.png",
+      "message": "Merhaba ben 11"
+    },
+    {
+      "id": 11,
+      "name": "İsim 2",
+      "location": "İstanbul",
+      "distance": "150 KM",
+      "age": "22",
+      "photo": "https://i.imgur.com/viK6HkX.png",
+      "message": "Merhaba ben 12"
+    },
+    {
+      "id": 12,
+      "name": "İsim 3",
+      "location": "Ankara",
+      "distance": "100 KM",
+      "age": "23",
+      "photo": "https://i.imgur.com/7FZ5rYs.jpeg",
+      "message": "Merhaba ben 13Merhaba ben 13Merhaba ben 13Merhaba ben 13Merhaba ben 13Merhaba ben 13"
+    },
+    {
+      "id": 13,
+      "name": "İsim 4",
+      "location": "Antalya",
+      "distance": "78 KM",
+      "age": "24",
+      "photo": "https://i.imgur.com/e5WxfrR.jpeg",
+      "message": "Merhaba ben 14"
+    },
+    {
+      "id": 14,
+      "name": "İsim 5",
+      "location": "İzmir",
+      "distance": "0.2 KM",
+      "age": "225",
+      "photo": "https://i.imgur.com/Z3UcY9t.jpeg",
+      "message": "Merhaba ben 15"
     }
   ]
 }

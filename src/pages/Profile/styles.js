@@ -31,48 +31,12 @@ const styles = StyleSheet.create({
   },
   iconTextView: {
     flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+    marginTop: 10,
+    marginRight: 10,
   },
-  iconText: {
-    fontSize: 14,
-    color: colors.darkGrey,
-    marginTop: 5,
-  },
-  icon: {
-    backgroundColor: colors.white,
-    borderRadius: 30,
-    width: 60,
-    height: 60,
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: "center",
-    shadowColor: colors.darkGrey,
-    shadowOffset: {
-      width: 10,
-      height: 10,
-    },
-    shadowOpacity: 2,
-    shadowRadius: 10,
-    elevation: 10,
-  },
-  littleIcon: {
-    backgroundColor: colors.white,
-    borderRadius: 25,
-    width: 50,
-    height: 50,
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: "center",
-    shadowColor: colors.darkGrey,
-    shadowOffset: {
-      width: 10,
-      height: 10,
-    },
-    shadowOpacity: 2,
-    shadowRadius: 10,
-    elevation: 10,
-  },
+
   premiumBox: {
     marginVertical: 20,
     backgroundColor: colors.primary,
@@ -112,7 +76,6 @@ const styles = StyleSheet.create({
   },
   boostButton: {
     backgroundColor: colors.white,
-    borderRadius: 30,
     width: 200,
   },
   boxView: {
@@ -122,6 +85,23 @@ const styles = StyleSheet.create({
   },
   premiumContentView: {
     marginBottom: 20,
+  },
+  editProfileButtonText: {
+    color: colors.primary,
+    fontWeight: "bold",
+    alignSelf: "center",
+  },
+  editProfileButton: {
+    backgroundColor: colors.white,
+    borderColor: colors.primary,
+    borderWidth: 1,
+    height: 30,
+    width: 200,
+  },
+  buttonView: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 10,
   },
 });
 

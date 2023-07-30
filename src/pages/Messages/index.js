@@ -47,4 +47,5 @@ const MessagesScreen = (props) => {
     </View>
   );
 };
+
 export default MessagesScreen;

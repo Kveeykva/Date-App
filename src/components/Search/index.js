@@ -4,11 +4,11 @@ import styles from "./styles";
 import { FontAwesome } from "@expo/vector-icons";
 
 const Search = (props) => {
-  const { onPress } = props;
+  const { onPress, customStyle } = props;
   return (
     <View>
       <TouchableOpacity
-        style={styles.searchContainer}
+        style={[styles.searchContainer, customStyle]}
         hitSlop={{ top: 35, bottom: 35, left: 50, right: 50 }}
         onPress={onPress}
       >

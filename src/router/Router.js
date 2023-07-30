@@ -1,4 +1,4 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import React from "react";
 import LoginScreen from "../auth/Login";
 import RegisterScreen from "../auth/Register";
@@ -15,19 +15,8 @@ import SettingsScreen from "../pages/Settings";
 import EditProfileScreen from "../pages/EditProfile";
 import { Ionicons } from "@expo/vector-icons";
 import colors from "../colors";
-import GenderScreen from "../pages/EditProfile/lifeStylePages/gender";
-import ZodiacSignScreen from "../pages/EditProfile/lifeStylePages/zodiacSign";
-import EducationScreen from "../pages/EditProfile/lifeStylePages/education";
-import WorkScreen from "../pages/EditProfile/lifeStylePages/work";
-import HomeTownScreen from "../pages/EditProfile/lifeStylePages/homeTown";
-import LocationScreen from "../pages/EditProfile/lifeStylePages/location";
-import SmokeScreen from "../pages/EditProfile/myBasicsPages/smoke";
-import DrinkScreen from "../pages/EditProfile/myBasicsPages/drink";
-import LookingForScreen from "../pages/EditProfile/myBasicsPages/lookingFor";
-import SporScreen from "../pages/EditProfile/myBasicsPages/spor";
-import PoliticsScreen from "../pages/EditProfile/myBasicsPages/politics";
-import PetScreen from "../pages/EditProfile/myBasicsPages/pet";
 import EditProfileAttribute from "../pages/EditProfile/editProfile";
+import SettingsScreenAttribute from "../pages/Settings/settingsPageAttribute";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -80,7 +69,7 @@ const Router = (props) => {
           options={{
             headerShown: true,
             title: "Ayarlar",
-            animation: "slide_from_left",
+            animation: "slide_from_right",
             headerStyle: {
               backgroundColor: colors.primary,
             },
@@ -90,6 +79,23 @@ const Router = (props) => {
             },
             headerTitleAlign: "center",
           }}
+        />
+        <Stack.Screen
+          name="SettingsAttributes"
+          component={SettingsScreenAttribute}
+          options={({ route }) => ({
+            title: route.params.headerTitle,
+            headerShown: true,
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          })}
         />
         <Stack.Screen
           name="EditUserProfile"
@@ -132,6 +138,8 @@ const Router = (props) => {
 };
 
 function HomeTabs() {
+  const navigation = useNavigation();
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -161,7 +169,6 @@ function HomeTabs() {
       <Tab.Screen name="Matches" component={MatchScreen} />
       <Tab.Screen name="HomeTab" component={HomeScreen} />
       <Tab.Screen name="Message" component={MessageScreen} />
-      {/* <Tab.Screen name="Settings" component={SettingsScreen} /> */}
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );

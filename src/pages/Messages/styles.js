@@ -1,45 +1,80 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import colors from "../../colors";
+const { width, height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: colors.white,
+    flex: 1,
   },
-  profilePhoto: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    alignItems: "center",
-    justifyContent: "center",
-    resizeMode: "contain",
-  },
-  imageView: {
-    flexDirection: "row",
-    alignItems: "center",
+  inlineContainer: {
     marginHorizontal: 10,
-    marginTop: 10,
+    marginVertical: 5,
   },
-  name: {
-    marginLeft: 20,
-    fontSize: 16,
+
+  search: {},
+  headerView: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: colors.primary,
+    borderRadius: 10,
+    width: width - 80,
+    height: 40,
+    paddingHorizontal: 10,
+    justifyContent: "center",
+    alignSelf: "center",
+  },
+  waitingMatch: {
+    marginTop: 20,
+  },
+  newMatchesTitle: {
+    fontSize: 18,
     fontWeight: "bold",
   },
-  messageItemView: {
-    paddingLeft: 10,
+  matchesContainer: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    marginTop: 20,
   },
-  messageView: {
-    marginVertical: 10,
-    marginHorizontal: 10,
-    padding: 10,
-    borderRadius: 10,
-    borderColor: "#e0e0e0",
-    marginRight: 20,
+  matchesView: {
+    backgroundColor: colors.lightGrey,
+    borderRadius: 30,
+    marginRight: 10,
+    width: 60,
+    height: 60,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    resizeMode: "contain",
   },
-  itemContainer: {
-    borderBottomWidth: 1,
-    borderBottomColor: "#e0e0e0",
-    marginHorizontal: -10,
+  messagesView: {
+    marginTop: 20,
+  },
+  messagesContainer: {
+    flexDirection: "row",
+    marginTop: 20,
+    alignSelf: "flex-start",
+    width: width - 20,
+  },
+  textView: {
+    flexDirection: "column",
+    justifyContent: "center",
+    marginLeft: 10,
+  },
+  name: {
+    fontWeight: "bold",
+  },
+  message: {
+    fontSize: 12,
+    alignSelf: "center",
+    width: width - 100,
+  },
+  flatList: {
+    height: height - 310,
   },
 });
 
