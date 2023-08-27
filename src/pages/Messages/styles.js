@@ -18,6 +18,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
+  itemContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginHorizontal: 10,
+    marginVertical: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.lightGrey,
+    paddingBottom: 10,
+  },
   input: {
     borderWidth: 1,
     borderColor: colors.primary,
@@ -67,6 +77,10 @@ const styles = StyleSheet.create({
   },
   name: {
     fontWeight: "bold",
+   justifyContent:'center', 
+    alignSelf:'center',
+    fontSize: 16,
+    marginLeft: 10,
   },
   message: {
     fontSize: 12,
@@ -76,6 +90,19 @@ const styles = StyleSheet.create({
   flatList: {
     height: height - 310,
   },
+  profilePhoto:{
+    width:50,
+    height:50,
+    resizeMode:'contain',
+
+    borderRadius:50,
+  },
+  imageView:{
+    flexDirection:'row',
+  },
+  messageItemView:{
+    
+  }
 });
 
 export default styles;
