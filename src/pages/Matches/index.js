@@ -9,14 +9,30 @@ import {
   selectCarousel,
 } from "../../redux/Slices/carouselSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
+import MainModal from "../../components/MainModal/main";
+import {  hideModal, toggleModal } from "../../redux/Slices/modalSlice";
 
 function MatchScreen() {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const userProfilePhoto = useSelector(selectCarousel);
+  const isModalVisible = useSelector((state) => state.modal.isVisible);
+
+
+  const closeModal = () => {
+    dispatch(hideModal());
+  };
+
+  const modalStatus = () => {
+    dispatch(toggleModal());
+  };
+
 
   useEffect(() => {
     dispatch(fetchCarousel());
   }, []);
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -41,7 +57,9 @@ function MatchScreen() {
             vertical
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => (
-              <TouchableOpacity style={styles.matchesContainer}>
+              <TouchableOpacity
+              onPress={modalStatus}
+              style={styles.matchesContainer}>
                 <Image
                   source={{ uri: item.photo }}
                   style={styles.matchesPhotoView}
@@ -51,9 +69,15 @@ function MatchScreen() {
               </TouchableOpacity>
             )}
           />
-          <Button
-            customStyle={styles.button}
+      
+          <MainModal
+            button
+            visible={isModalVisible}
+            hideModal={closeModal}
+            onPress={modalStatus}
             text="Seni Kimlerin Beğendiğini Gör"
+            style={styles.customStyle}
+            modalText="Seni kimlerin beğendiğini görebilmek için hesabını Gold'a yükselt."
           />
         </View>
       </View>

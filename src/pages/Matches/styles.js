@@ -51,9 +51,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  button: {
+  customStyle: {
     backgroundColor: colors.gold,
     marginTop: 20,
+    paddingHorizontal:20
+    
   },
 });
 

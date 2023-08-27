@@ -4,7 +4,7 @@ export const fetchCarousel = createAsyncThunk(
   "carousel/fetchCarousel",
   async () => {
     try {
-      const response = await fetch("http://192.168.1.106:3000/carousel");
+      const response = await fetch("http://192.168.1.107:3000/carousel");
       return await response.json();
     } catch (error) {
       console.log(error);

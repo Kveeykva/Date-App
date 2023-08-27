@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Image, View, Pressable } from "react-native";
+import { Image, View, Pressable, Alert } from "react-native";
 import styles from "./addPhotoStyles";
 import { Entypo } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
@@ -18,7 +18,7 @@ export default function AddPhoto() {
         const { status } =
           await ImagePicker.requestMediaLibraryPermissionsAsync();
         if (status !== "granted") {
-          alert("Yetki verilmedi!");
+          Alert.alert("Yetki verilmedi!");
         }
       }
     })();
