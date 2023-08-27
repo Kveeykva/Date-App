@@ -83,6 +83,12 @@ const ProfileScreen = (props) => {
                 text="Gold üyelik ile bütün özelliklere sahip olabilirsin. Daha fazla kişiyle tanışabilirsin. "
               />
               <Button
+                onPress={() => {
+                  navigation.navigate("MembershipsAttribute", {
+                    type: "GoldPremium",
+                    headerTitle: "Gold Üyelik",
+                  });
+                }}
                 text="Gold'a Yükselt 199.99TL"
                 customStyle={styles.boostButton}
                 textCustomStyle={styles.boostButtonText}

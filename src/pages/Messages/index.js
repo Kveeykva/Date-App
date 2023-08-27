@@ -23,7 +23,6 @@ const MessagesScreen = (props) => {
       <ScrollView style={styles.messageItemView}>
         {carousel.carousel.map((item) => {
           return (
-
             <TouchableOpacity
               activeOpacity={0.5}
               style={styles.itemContainer}
@@ -38,10 +37,10 @@ const MessagesScreen = (props) => {
               </View>
 
               <View style={styles.messageView}>
-                {item.message.length > 20 ? (
+                {item.message?.length > 20 ? (
                   <Text>{item.message.slice(0, 20)}...</Text>
                 ) : (
-                <Text>{item.message}</Text>
+                  <Text>{item.message}</Text>
                 )}
               </View>
             </TouchableOpacity>

@@ -11,14 +11,13 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import MainModal from "../../components/MainModal/main";
-import {  hideModal, toggleModal } from "../../redux/Slices/modalSlice";
+import { hideModal, toggleModal } from "../../redux/Slices/modalSlice";
 
 function MatchScreen() {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const userProfilePhoto = useSelector(selectCarousel);
   const isModalVisible = useSelector((state) => state.modal.isVisible);
-
 
   const closeModal = () => {
     dispatch(hideModal());
@@ -28,11 +27,9 @@ function MatchScreen() {
     dispatch(toggleModal());
   };
 
-
   useEffect(() => {
     dispatch(fetchCarousel());
   }, []);
-
 
   return (
     <SafeAreaView style={styles.container}>
@@ -58,8 +55,9 @@ function MatchScreen() {
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => (
               <TouchableOpacity
-              onPress={modalStatus}
-              style={styles.matchesContainer}>
+                onPress={modalStatus}
+                style={styles.matchesContainer}
+              >
                 <Image
                   source={{ uri: item.photo }}
                   style={styles.matchesPhotoView}
@@ -69,7 +67,7 @@ function MatchScreen() {
               </TouchableOpacity>
             )}
           />
-      
+
           <MainModal
             button
             visible={isModalVisible}
