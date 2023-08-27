@@ -18,6 +18,7 @@ const CarouselPhoto = (props) => {
   useEffect(() => {
     dispatch(fetchCarousel());
   }, []);
+
   const handleOnSwipedLeft = () => useSwiper.swipeLeft();
   const handleOnSwipedTop = () => useSwiper.swipeTop();
   const handleOnSwipedRight = () => useSwiper.swipeRight();

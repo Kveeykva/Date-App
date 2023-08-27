@@ -15,7 +15,7 @@ const ProfilePicture = (props) => {
           <Image
             key={item.photo}
             source={{ uri: item.photo }}
-            style={styles.profilePhoto}
+            style={[styles.profilePhoto, props.style]}
           />
         );
       })}

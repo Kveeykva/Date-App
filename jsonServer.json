@@ -11,7 +11,7 @@
     },
     {
       "id": 1,
-      "name": "İsim 2",
+      "name": "Nuri",
       "location": "İstanbul",
       "distance": "150 KM",
       "age": "22",
@@ -20,7 +20,7 @@
     },
     {
       "id": 2,
-      "name": "İsim 3",
+      "name": "Ahmet",
       "location": "Ankara",
       "distance": "100 KM",
       "age": "23",
@@ -30,7 +30,7 @@
     {
       "id": 3,
       "name": "İsim 4",
-      "location": "Antalya",
+      "location": "Ceylan",
       "distance": "78 KM",
       "age": "24",
       "photo": "https://i.imgur.com/e5WxfrR.jpeg",
@@ -38,7 +38,7 @@
     },
     {
       "id": 4,
-      "name": "İsim 5",
+      "name": "Hüseyin",
       "location": "İzmir",
       "distance": "0.2 KM",
       "age": "225",

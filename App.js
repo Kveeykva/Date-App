@@ -8,7 +8,7 @@ import { store } from "./src/redux/store";
 const App = () => (
   <Provider store={store}>
     <View style={{ flex: 1 }}>
-      <StatusBar style="light" translucent={false} />
+      <StatusBar style="dark" translucent={false} />
       <Router />
     </View>
   </Provider>
