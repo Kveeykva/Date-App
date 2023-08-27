@@ -17,6 +17,7 @@ import { Ionicons } from "@expo/vector-icons";
 import colors from "../colors";
 import EditProfileAttribute from "../pages/EditProfile/editProfile";
 import SettingsScreenAttribute from "../pages/Settings/settingsPageAttribute";
+import MembershipsAttribute from "../pages/MemberShip";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -26,7 +27,7 @@ const Router = (props) => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="HomeTab"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen
@@ -114,6 +115,28 @@ const Router = (props) => {
             headerTitleAlign: "center",
           }}
         />
+   <Stack.Screen
+  name="MembershipsAttribute"
+  component={MembershipsAttribute}
+  options={({ route }) => {
+    const headerTitle = route.params.headerTitle;
+    const backgroundColor = headerTitle === 'Gold Üyelik' ? colors.gold : colors.primary;
+
+    return {
+      title: headerTitle,
+      headerShown: true,
+      animation: "slide_from_right",
+      headerStyle: {
+        backgroundColor: backgroundColor,
+      },
+      headerTintColor: colors.white,
+      headerTitleStyle: {
+        fontWeight: "bold",
+      },
+      headerTitleAlign: "center",
+    };
+  }}
+/>
 
         <Stack.Screen
           name="EditProfileAttributes"
