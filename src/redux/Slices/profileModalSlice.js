@@ -4,21 +4,21 @@ const initialState = {
   isVisible: false,
 };
 
-const modalSlice = createSlice({
-  name: "modal",
+const ProfileModal = createSlice({
+  name: "modalx",
   initialState,
   reducers: {
-    showModal: (state) => {
+    showModalx: (state) => {
       state.isVisible = true;
     },
-    hideModal: (state) => {
+    hideModalx: (state) => {
       state.isVisible = false;
     },
-    toggleModal: (state) => {
+    toggleModalx: (state) => {
       state.isVisible = !state.isVisible;
     },
   },
 });
 
-export const { showModal, hideModal, toggleModal } = modalSlice.actions;
-export default modalSlice.reducer;
+export const { showModalx, hideModalx, toggleModalx } = ProfileModal.actions;
+export default ProfileModal.reducer;

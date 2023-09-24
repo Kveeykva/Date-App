@@ -4,8 +4,10 @@ import styles from "./styles";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCarousel } from "../../redux/Slices/carouselSlice";
 import MainHeader from "../../components/Header";
+import { useNavigation } from "@react-navigation/native";
 
 const MessagesScreen = (props) => {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const carousel = useSelector(selectCarousel);
 
@@ -24,6 +26,15 @@ const MessagesScreen = (props) => {
         {carousel.carousel.map((item) => {
           return (
             <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("MessageInside", {
+                  id: item.id,
+                  name: item.name,
+                  surname: item.surname,
+                  photo: item.photo,
+                  message: item.message,
+                });
+              }}
               activeOpacity={0.5}
               style={styles.itemContainer}
               key={item.id}

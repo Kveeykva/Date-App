@@ -3,7 +3,6 @@ import { View, Text, FlatList, Image, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styles from "./styles";
 import { AntDesign } from "@expo/vector-icons";
-import Button from "../../components/Button";
 import {
   fetchCarousel,
   selectCarousel,
@@ -14,7 +13,6 @@ import MainModal from "../../components/MainModal/main";
 import { hideModal, toggleModal } from "../../redux/Slices/modalSlice";
 
 function MatchScreen() {
-  const navigation = useNavigation();
   const dispatch = useDispatch();
   const userProfilePhoto = useSelector(selectCarousel);
   const isModalVisible = useSelector((state) => state.modal.isVisible);
@@ -44,6 +42,7 @@ function MatchScreen() {
       <View style={styles.likePeopleContainer}>
         <View style={styles.likePeopleView}>
           <Text style={styles.likePeopleText}>Beğenilerin</Text>
+          <Text>{userProfilePhoto.carousel.length}</Text>
         </View>
         <View style={styles.photoView}>
           <FlatList

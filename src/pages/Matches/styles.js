@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
     color: colors.black,
   },
   likePeopleView: {
-    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 10,
@@ -54,8 +53,7 @@ const styles = StyleSheet.create({
   customStyle: {
     backgroundColor: colors.gold,
     marginTop: 20,
-    paddingHorizontal:20
-    
+    paddingHorizontal: 20,
   },
 });
 

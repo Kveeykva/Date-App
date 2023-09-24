@@ -7,6 +7,7 @@ const Button = (props) => {
     props;
   return (
     <TouchableOpacity
+      activeOpacity={0.5}
       onPress={onPress}
       style={
         isDisabled

@@ -1,16 +1,19 @@
 import React from "react";
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  SafeAreaView,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import ProfilePicture from "../ProfilePicture";
 import styles from "./styles";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { showModalx } from "../../redux/Slices/profileModalSlice";
+import { useDispatch } from "react-redux";
 
 const MainHeader = (props) => {
+  const dispatch = useDispatch();
+
+  const showModall = () => {
+    dispatch(showModalx());
+  };
+
   const {
     title,
     icon,
@@ -21,11 +24,26 @@ const MainHeader = (props) => {
     search,
     filter,
     profilePic,
+    userPic,
+    backPage,
   } = props;
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        {profilePic && <ProfilePicture style={styles.profilePic} />}
+        {backPage && (
+          <TouchableOpacity onPress={backPage}>
+            <AntDesign
+              name="arrowleft"
+              size={24}
+              color="black"
+              style={{ marginRight: 10 }}
+            />
+          </TouchableOpacity>
+        )}
+        {profilePic && (
+          <ProfilePicture onPress={showModall} style={styles.profilePic} />
+        )}
+        {userPic && <Image style={styles.profilePic} source={image} />}
         <Text style={styles.titleText}>{title}</Text>
         <View style={styles.searchView}>
           {search && (

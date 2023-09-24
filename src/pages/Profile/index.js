@@ -3,10 +3,6 @@ import { View, Text, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ProfilePicture from "../../components/ProfilePicture";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchCarousel,
-  selectCarousel,
-} from "../../redux/Slices/carouselSlice";
 import styles from "./styles";
 import IconButton from "../../components/IconButton";
 import colors from "../../colors";
@@ -14,13 +10,24 @@ import Box from "../../components/Box";
 import Button from "../../components/Button";
 import { useNavigation } from "@react-navigation/native";
 import PremiumContent from "./premiumContent";
-import { Pressable } from "react-native";
-import { TouchableOpacity } from "react-native";
+import { hideModalx, showModalx } from "../../redux/Slices/profileModalSlice";
+import ProfileModal from "./profileModal";
 
 const ProfileScreen = (props) => {
   const navigation = useNavigation();
   const carousel = useSelector((state) => state.carousel.carousel);
   const firstName = carousel.slice(0, 1);
+
+  const dispatch = useDispatch();
+  const visible = useSelector((state) => state.modalx.isVisible);
+
+  const closeModal = () => {
+    dispatch(hideModalx());
+  };
+
+  const showModall = () => {
+    dispatch(showModalx());
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -33,7 +40,7 @@ const ProfileScreen = (props) => {
             size={26}
           />
         </View>
-        <ProfilePicture />
+        <ProfilePicture onPress={showModall} />
         <Text style={styles.nameText}>
           {firstName.map((item) => {
             return (
@@ -61,6 +68,12 @@ const ProfileScreen = (props) => {
                 text="Premium üyeliğin sayesinde daha fazla kişiyle tanışabilirsin."
               />
               <Button
+                onPress={() => {
+                  navigation.navigate("MembershipsAttribute", {
+                    type: "NormalPremium",
+                    headerTitle: "Premium'a Yükselt",
+                  });
+                }}
                 text="Premium'a Yükselt 69.99TL"
                 customStyle={styles.boostButton}
                 textCustomStyle={styles.buttonText}
@@ -72,6 +85,12 @@ const ProfileScreen = (props) => {
                 text="Boost üyeliğin sayesinde profilinizi daha fazla kişi görebilir. "
               />
               <Button
+                onPress={() => {
+                  navigation.navigate("MembershipsAttribute", {
+                    type: "BoostPremium",
+                    headerTitle: "Boost Üyelik",
+                  });
+                }}
                 text="Boost'a Yükselt 49.99TL"
                 customStyle={styles.boostButton}
                 textCustomStyle={styles.boostButtonText}
@@ -100,6 +119,7 @@ const ProfileScreen = (props) => {
           <PremiumContent />
         </View>
       </ScrollView>
+      <ProfileModal visible={visible} hideModal={closeModal} />
     </SafeAreaView>
   );
 };

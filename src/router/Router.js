@@ -18,6 +18,8 @@ import colors from "../colors";
 import EditProfileAttribute from "../pages/EditProfile/editProfile";
 import SettingsScreenAttribute from "../pages/Settings/settingsPageAttribute";
 import MembershipsAttribute from "../pages/MemberShip";
+import MessagesInside from "../pages/Messages/messagesInside";
+import Payment from "../pages/Payment";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -53,6 +55,11 @@ const Router = (props) => {
         <Stack.Screen
           name="PhoneAuth"
           component={PhoneAuthScreen}
+          options={{ animation: "slide_from_right" }}
+        />
+        <Stack.Screen
+          name="MessageInside"
+          component={MessagesInside}
           options={{ animation: "slide_from_right" }}
         />
         <Stack.Screen
@@ -115,28 +122,32 @@ const Router = (props) => {
             headerTitleAlign: "center",
           }}
         />
-   <Stack.Screen
-  name="MembershipsAttribute"
-  component={MembershipsAttribute}
-  options={({ route }) => {
-    const headerTitle = route.params.headerTitle;
-    const backgroundColor = headerTitle === 'Gold Üyelik' ? colors.gold : colors.primary;
-
-    return {
-      title: headerTitle,
-      headerShown: true,
-      animation: "slide_from_right",
-      headerStyle: {
-        backgroundColor: backgroundColor,
-      },
-      headerTintColor: colors.white,
-      headerTitleStyle: {
-        fontWeight: "bold",
-      },
-      headerTitleAlign: "center",
-    };
-  }}
-/>
+        <Stack.Screen
+          name="MembershipsAttribute"
+          component={MembershipsAttribute}
+          options={({ route }) => {
+            const headerTitle = route.params.headerTitle;
+            const backgroundColor =
+              headerTitle === "Gold Üyelik"
+                ? colors.gold
+                : headerTitle === "Boost Üyelik"
+                ? colors.turquoise
+                : colors.primary;
+            return {
+              title: headerTitle,
+              headerShown: true,
+              animation: "slide_from_right",
+              headerStyle: {
+                backgroundColor: backgroundColor,
+              },
+              headerTintColor: colors.white,
+              headerTitleStyle: {
+                fontWeight: "bold",
+              },
+              headerTitleAlign: "center",
+            };
+          }}
+        />
 
         <Stack.Screen
           name="EditProfileAttributes"
@@ -154,6 +165,23 @@ const Router = (props) => {
             },
             headerTitleAlign: "center",
           })}
+        />
+        <Stack.Screen
+          name="Payment"
+          component={Payment}
+          options={{
+            headerShown: true,
+            title: "Ödeme Adımı",
+            animation: "slide_from_right",
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerTitleAlign: "center",
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
