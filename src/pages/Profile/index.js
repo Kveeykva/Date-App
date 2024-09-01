@@ -40,7 +40,7 @@ const ProfileScreen = (props) => {
             size={26}
           />
         </View>
-        <ProfilePicture onPress={showModall} />
+        <ProfilePicture />
         <Text style={styles.nameText}>
           {firstName.map((item) => {
             return (

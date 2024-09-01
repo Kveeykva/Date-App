@@ -12,10 +12,14 @@ import { useNavigation } from "@react-navigation/native";
 import MainModal from "../../components/MainModal/main";
 import { hideModal, toggleModal } from "../../redux/Slices/modalSlice";
 
-function MatchScreen() {
+function MatchScreen(props) {
   const dispatch = useDispatch();
   const userProfilePhoto = useSelector(selectCarousel);
   const isModalVisible = useSelector((state) => state.modal.isVisible);
+
+  const { email, password } = props.route.params || {};
+
+  console.log(email, password);
 
   const closeModal = () => {
     dispatch(hideModal());

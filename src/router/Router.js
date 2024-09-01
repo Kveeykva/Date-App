@@ -29,13 +29,17 @@ const Router = (props) => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="HomeTab"
+        initialRouteName="Login"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen
           name="Home"
           component={HomeTabs}
-          options={{ animation: "slide_from_right" }}
+          options={({ route }) => ({
+            params: route.params,
+            headerShown: false,
+            animation: "slide_from_right",
+          })}
         />
         <Stack.Screen
           name="Register"
@@ -197,7 +201,7 @@ function HomeTabs() {
         tabBarIcon: ({ focused }) => {
           let iconName;
           if (route.name === "HomeTab") {
-            iconName = focused ? "ios-home" : "ios-home-outline";
+            iconName = focused ? "home" : "home-outline";
           } else if (route.name === "Settings") {
             iconName = focused ? "settings" : "settings-outline";
           } else if (route.name === "Profile") {

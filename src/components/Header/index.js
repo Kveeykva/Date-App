@@ -6,6 +6,7 @@ import styles from "./styles";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { showModalx } from "../../redux/Slices/profileModalSlice";
 import { useDispatch } from "react-redux";
+import ProfileModal from "../../pages/Profile/profileModal";
 
 const MainHeader = (props) => {
   const dispatch = useDispatch();
@@ -68,6 +69,7 @@ const MainHeader = (props) => {
           )}
         </View>
       </View>
+      <ProfileModal />
     </SafeAreaView>
   );
 };

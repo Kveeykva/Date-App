@@ -22,6 +22,10 @@ const HomeScreen = (props) => {
   const dispatch = useDispatch();
   const carousel = useSelector(selectCarousel);
 
+  const { email, password } = props.route.params || {};
+
+  console.log(email, password);
+
   useEffect(() => {
     dispatch(fetchCarousel());
   }, []);
@@ -75,6 +79,7 @@ const HomeScreen = (props) => {
                   location="Konum"
                   distance="Mesafe"
                   age="Yaş"
+                  ageRange="Yaş Aralığı"
                 />
               </View>
             </BottomSheetModal>

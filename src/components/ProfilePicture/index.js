@@ -23,7 +23,7 @@ const ProfilePicture = (props) => {
 
   return (
     <>
-      <TouchableOpacity onPress={onPress}>
+      <TouchableOpacity onPress={showModall}>
         {firstPhoto.map((item) => {
           return (
             <Image
